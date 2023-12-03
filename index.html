@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<head>
+	<title>Pieps hideout homepage</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<script src="https://kit.fontawesome.com/ac9f15c832.js" crossorigin="anonymous"></script>
+	<script id="vertex-shader-2d" type="shader">
+		// an attribute will receive data from a buffer
+		attribute vec4 a_position;
+		attribute vec4 a_color;
+
+		uniform mat4 u_matrix;
+
+		varying vec4 v_color;
+		
+		void main() {
+			
+			// gl_Position is a special variable a vertex shader
+			// is responsible for setting
+			gl_Position = u_matrix * a_position;
+
+			v_color = a_color;
+		}
+    </script>
+    <script id="fragment-shader-2d" type="shader">
+		precision highp float;
+
+		varying vec4 v_color;
+		
+		void main() {
+			// gl_FragColor is a special variable a fragment shader
+			// is responsible for setting
+			gl_FragColor = v_color;
+		}
+    </script>
+
+	<script id="postprocessing-vertex-shader-2d" type="shader">
+		attribute vec2 a_position;
+		attribute vec2 a_texCoord;
+
+		varying vec2 v_texCoord;
+
+		void main() {
+			gl_Position = vec4(a_position, 0, 1);
+			v_texCoord = a_texCoord;
+		}
+	</script>
+    <script id="postprocessing-fragment-shader-2d" type="shader">
+		precision highp float;
+
+		uniform sampler2D u_image;
+		uniform float u_time;
+		uniform float u_radius;
+		uniform float u_thickness;
+		uniform float u_dissipate;
+		uniform vec2 u_center; 
+		uniform vec2 u_resolution;
+
+		varying vec2 v_texCoord;
+		
+		void main() {
+			// Distance from circle origin
+			vec2 direction = gl_FragCoord.xy - u_center;
+			float thickness = u_thickness - u_dissipate * u_time;
+			//float distance = abs(length(gl_FragCoord.xy - u_center));
+			float distance = abs(length(direction));
+			float radius = u_time * u_radius;
+
+			vec4 pixel_color;
+			if(u_time > 0.0 && thickness > 0.0 && distance > radius - thickness && distance <= radius + thickness)
+			{
+				float exp = 1.2;
+				//vec2 offset = (1.0 - pow((distance - radius) / (u_thickness * 2.0), exp)) * direction;
+				vec2 offset = pow((distance - radius) / (thickness * 2.0), exp) * direction;
+				pixel_color = texture2D(u_image, v_texCoord + offset / u_resolution);
+				pixel_color = vec4(1.0 - pixel_color.r, 1.0 - pixel_color.g, 1.0 - pixel_color.b, (thickness / (u_thickness * 2.0) ));
+			}
+			else
+			{
+				pixel_color = texture2D(u_image, v_texCoord);
+			}
+
+
+			//gl_FragColor = vec4(texture2D(u_image, v_texCoord));
+			gl_FragColor = vec4(pixel_color);
+			gl_FragColor = pixel_color;
+		}
+    </script>
+
+    <script id="unused-badTV-shader" type="shader">
+		precision highp float;
+
+		// Random from float seed
+		highp float random1d(float dt) {
+			highp float c = 43758.5453;
+			highp float sn = mod(dt, 3.14);
+			return fract(sin(sn) * c);
+		}
+
+		// Very basic noise function, from https://thebookofshaders.com/11/
+		highp float noise1d(float value) {
+			highp float i = floor(value);
+			highp float f = fract(value);
+			return mix(random1d(i), random1d(i + 1.0), smoothstep(0.0, 1.0, f));
+		}
+
+		// Random from vec2 seed
+		highp float random2d(vec2 co) {
+			highp float a = 12.9898;
+			highp float b = 78.233;
+			highp float c = 43758.5453;
+			highp float dt = dot(co.xy, vec2(a, b));
+			highp float sn = mod(dt, 3.14);
+			return fract(sin(sn) * c);
+		}
+	
+		uniform sampler2D u_image;
+		uniform float u_time;
+
+		varying vec2 v_texCoord;
+		
+		void main() {
+			// Calculate the effect relative strength
+			float strength = (0.3 + 0.7 * noise1d(0.3 * u_time)) * 0.05;
+
+			// Calculate the effect jump at the current time interval
+			float jump = 500.0 * floor(0.3 * 0.5 * (u_time + noise1d(u_time)));
+
+			// Shift the texture coordinates
+			vec2 uv = v_texCoord;
+			uv.y += 0.2 * strength * (noise1d(5.0 * v_texCoord.y + 2.0 * u_time + jump) - 0.5);
+			uv.x += 0.1 * strength * (noise1d(100.0 * strength * uv.y + 3.0 * u_time + jump) - 0.5);
+
+			// Get the texture pixel color
+			vec3 pixel_color = texture2D(u_image, uv).rgb;
+
+			// Add some white noise
+			//pixel_color += vec3(5.0 * strength * (random2d(v_texCoord + 1.133001 * vec2(u_time, 1.13)) - 0.5));
+
+			// Fragment shader output
+			//gl_FragColor = vec4(pixel_color, 1.0);
+
+			gl_FragColor = vec4(texture2D(u_image, v_texCoord).rgb, 1);
+		}
+	</script>
+	<div>
+		<canvas id="glCanvas" class="background"></canvas>
+		<div id="dynamic">
+			<script src="dist/bundle.js"></script>
+		</div>
+	</div>
+</body>
