@@ -135,12 +135,6 @@
 			// Get the texture pixel color
 			vec3 pixel_color = texture2D(u_image, uv).rgb;
 
-			// Add some white noise
-			//pixel_color += vec3(5.0 * strength * (random2d(v_texCoord + 1.133001 * vec2(u_time, 1.13)) - 0.5));
-
-			// Fragment shader output
-			//gl_FragColor = vec4(pixel_color, 1.0);
-
 			gl_FragColor = vec4(texture2D(u_image, v_texCoord).rgb, 1);
 		}
 	</script>

@@ -31,8 +31,10 @@ let then = 0; // Used for deltatime
 let menuButtons : HTMLButtonElement[] = [] // Save the current menu buttons for animation related things
 let mainBoxScale = boxSize/Math.sqrt(2 * Math.pow(boxSize, 2))
 let fullBoxDiff = 1.0 - mainBoxScale
-
+// For main page
 let iconDiv, optionDiv, copyDiv;
+// For blog page
+let blogDiv, ratingDiv, thumbDiv;
 
 // Menu routes. Others are dynamic, depending on the available files. Format (title, icon, animation, route)
 const menuRoutes = [
@@ -95,22 +97,9 @@ let postDepthBuffer = gl.createRenderbuffer();
 // let postBuffer = gl.createTexture(gl.TEXTURE_3D);
 let frameBuffer = gl.createFramebuffer();
 
-
-// gl.bindTexture(gl.TEXTURE_2D, postBuffer);
-// Hard to find much info on these, apparently this scales the texture to whatever size
-// gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-// gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-// gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-// gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-// gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.canvas.width, gl.canvas.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
-
-// gl.bindFramebuffer(gl.FRAMEBUFFER, frameBuffer);
-// gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, postBuffer, 0);
-
-
 // let rot = 0, then = 0, animation = 0;
 let hTimer = new Timer(0, 0.6, 1);
-let aTimer = new Timer(0, 0.6);
+let aTimer = new Timer(0, 0.8);
 // let hTimer = new Timer(0, 0.3, 1);
 let fTimer = new Timer(0, 20, 1);
 let pTimer = new Timer(0, 1);
@@ -312,41 +301,11 @@ function SpawnIcon(size : number, name : string) : void
 
 function DestroyIcon()
 {
-    // let iconContainer = document.getElementsByName("iconContainer")[0];
     iconDiv.innerHTML = ""
-}
-
-function AnimateToBio()
-{
-    aTimer.time = 0;
-    pTimer.time = 0;
-    animation = 3;
-}
-
-function AnimateToCreative()
-{
-    aTimer.time = 0;
-    pTimer.time = 0;
-    animation = 2;
-}
-
-function AnimateToReviews()
-{
-    aTimer.time = 0;
-    pTimer.time = 0;
-    animation = 1;
-}
-
-function AnimateToHome()
-{
-    aTimer.time = 0;
-    pTimer.time = 0;
-    animation = 0;
 }
 
 function AddMenuHome()
 {
-    // let optionContainer = document.getElementsByName("options")[0];
     copyDiv.innerText = copyRight
     optionDiv.innerHTML = ""
     menuButtons = []
@@ -398,6 +357,34 @@ function MenuView() : any
         oncreate : function() {
             iconDiv = document.getElementsByName("iconContainer")[0]
             optionDiv = document.getElementsByName("options")[0]
+            copyDiv = document.getElementById("copyRight")
+            AddMenuHome();
+        },
+        view: function() {
+            return m("div", {class : "foreground"},
+            [
+                m("div", {name : "iconContainer"}),
+                m("div", {id : "topBar"}),
+                m("div", {id : "visualBar"}),
+                m("div", {id : "centerBar"}, 
+                [
+                    m("div", {name : "options", id : "options"})
+                ]),
+                m("div", {id : "footerBar"},
+                [
+                    m("i", {class : "fa-regular fa-copyright", name : "copyRight", id : "copyRight"})
+                ]),
+            ])
+        }
+    }
+}
+
+function BlogView() : any
+{
+    return {
+        oncreate : function() {
+            blogDiv = document.getElementsByName("article")[0]
+            thumbDiv = document.getElementsByName("")[0]
             copyDiv = document.getElementsByName("copyRight")[0]
             AddMenuHome();
         },
@@ -418,6 +405,7 @@ function MenuView() : any
             ])
         }
     }
+
 }
 
 let Menu = MenuView()

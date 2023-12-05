@@ -143,6 +143,7 @@ body {
 	flex-direction: column;
 	/* justify-content:flex-end; */
 	align-items: center;
+	justify-content: flex-start;
 }
 
 
@@ -150,17 +151,16 @@ body {
 #hoverButton
 {
 	position: relative;
-	text-align:start;
-	font-size: max(3vh, 1.3vw);
-	font-size: auto;
-	margin-top: 4%;
+	text-align:center;
+	font-size: max(2.9vh, 1.3vw);
+	margin-top: 2%;
 	border-color: #969696;
 	border-style: none;
 	color: #969696;
 	background-color:#46464600;
 	width: 80%;
 	height: calc(60px + max(3vh, 1.3vw));
-	transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+	transition: color 0.5s, border-color 0.5s, background-color 0.5s, height 0.5s, font-size 0.5s;
 }
 
 #hoverButton.disabled
@@ -168,13 +168,22 @@ body {
 	border-color: #96969600;
 	color: #96969600;
 	background-color:#46464600;
+	height: 0px;
+	font-size: 0px;
+}
+
+#article
+{
+	background-color: rgba(255, 255, 255, 0.856);
 }
 
 #hoverButton:hover:not(:disabled)
 {
+	font-size: max(2.9vh, 1.3vw);
 	background-color: #969696;
 	color : #464646;
 	transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+	height: calc(60px + max(3vh, 1.3vw));
 }
 
 #footerBar{

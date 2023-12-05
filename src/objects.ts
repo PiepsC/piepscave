@@ -250,10 +250,10 @@ export class Timer
 		this.increasing = true;
 		if(max)
 		{
-			this.tick = this.alternating;
+			this.tick = (delta) => {if(document.hasFocus()) this.alternating(delta)};
 			this.max = max;
 		} else
-			this.tick = this.non_alternating;
+			this.tick = (delta) => {if(document.hasFocus()) this.non_alternating(delta)};
 	}
 
 	non_alternating(delta : number) {this.time = this.time >= Number.MAX_VALUE - Number.EPSILON ? 0 : this.time + this.step * delta;}
