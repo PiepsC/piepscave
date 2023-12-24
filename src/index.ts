@@ -1,6 +1,6 @@
-import m from "mithril";
+import m, { Vnode } from "mithril";
 import {createProgram, createShader, resizeCanvasToDisplaySize, setGeometry, setColors, m4, setRectangleVert, setRectangleUV} from "./glUtilities";
-import {Timer, Rectangle, CubeAnimation} from "./objects";
+import {Timer, Rectangle, CubeAnimation, ToggleBoolean} from "./objects";
 import BezierEasing from "bezier-easing";
 
 
@@ -10,8 +10,9 @@ let resizeRatio = 1;
 // Constants
 const hoverHeight = 50;
 const boxOffset = 250;
-const totalDepth = 800;
+const totalDepth = 10000;
 const initialRot = Math.PI / 4
+const maxMouseRot = Math.PI / 22
 const boxSize = 320;
 //Ripple effect parameters
 const baseRadius = 100;
@@ -21,6 +22,8 @@ const dissipateSpeed = 7;
 // Animation parameters
 const animBoundary = 150;
 const weirdOffset = 32;
+const BlogResize = 7.5;
+const SlowRotation = 0.01;
 //Colors
 const lightGrey = "#969696" // Encoding of the background color in hex. This corresponds to (70,70,70)
 
@@ -31,10 +34,14 @@ let then = 0; // Used for deltatime
 let menuButtons : HTMLButtonElement[] = [] // Save the current menu buttons for animation related things
 let mainBoxScale = boxSize/Math.sqrt(2 * Math.pow(boxSize, 2))
 let fullBoxDiff = 1.0 - mainBoxScale
+// Used for transitions
+let bool1 = new ToggleBoolean(false), bool2 = new ToggleBoolean(false), bool3 = new ToggleBoolean(false);
 // For main page
 let iconDiv, optionDiv, copyDiv;
 // For blog page
 let blogDiv, ratingDiv, thumbDiv;
+// For mouse tracking
+let mousex, mousey;
 
 // Menu routes. Others are dynamic, depending on the available files. Format (title, icon, animation, route)
 const menuRoutes = [
@@ -42,8 +49,7 @@ const menuRoutes = [
     ["Creative", "fa-dice", 2, "#!/creative"],
     ["About", "fa-graduation-cap", 3, "#!/about"]
 ]
-// const copyRight = " 2023-2023 Lars Willemsen"
-const copyRight = " 2023-2023"
+const copyRight = " 2023-2024 Lars Willemsen"
 
 // Section we alter with Mithriljs
 let start = document.querySelector("#dynamic")
@@ -101,7 +107,7 @@ let frameBuffer = gl.createFramebuffer();
 let hTimer = new Timer(0, 0.6, 1);
 let aTimer = new Timer(0, 0.8);
 // let hTimer = new Timer(0, 0.3, 1);
-let fTimer = new Timer(0, 20, 1);
+let fTimer = new Timer(0, 10, 1);
 let pTimer = new Timer(0, 1);
 
 let easing = BezierEasing(0.65, 0, .35, 1);
@@ -110,12 +116,9 @@ function postProcessing(time, ratio, center)
 {
 
     gl.bindBuffer(gl.ARRAY_BUFFER, pp_positionBuffer);
-    // setRectangleVert(gl, 0, 0, (<HTMLCanvasElement>gl.canvas).clientWidth, (<HTMLCanvasElement>gl.canvas).clientHeight);
     setRectangleVert(gl, 0, 0, gl.canvas.width, gl.canvas.height);
 
     gl.useProgram(pp_program);
-    // console.log(gl.canvas.width)
-    // console.log((<HTMLCanvasElement>gl.canvas).clientWidth)
 
     gl.uniform1f(timeAttributeLocation, time * speedUp);
     gl.uniform1f(dissipateAttributeLocation, dissipateSpeed * ratio);
@@ -123,7 +126,8 @@ function postProcessing(time, ratio, center)
     gl.uniform1f(thicknessAttributeLocation, thickness * ratio);
     // gl.uniform2f(centerAttributeLocation, center[0], center[1] + gl.canvas.height / 2 );
     gl.uniform2f(centerAttributeLocation, center[0], center[1] + gl.canvas.height / 2 - weirdOffset * ratio);
-    gl.uniform2f(resolutionAttributeLocation, (<HTMLCanvasElement>gl.canvas).clientWidth, (<HTMLCanvasElement>gl.canvas).clientHeight);
+    // gl.uniform2f(resolutionAttributeLocation, (<HTMLCanvasElement>gl.canvas).clientWidth, (<HTMLCanvasElement>gl.canvas).clientHeight);
+    gl.uniform2f(resolutionAttributeLocation, gl.canvas.width, gl.canvas.height);
     
     gl.enableVertexAttribArray(pp_positionAttributeLocation);
     gl.bindBuffer(gl.ARRAY_BUFFER, pp_positionBuffer);
@@ -150,34 +154,18 @@ function postProcessing(time, ratio, center)
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
     gl.drawArrays(gl.TRIANGLES, 0, 6);
-
-    // gl.bindFramebuffer(gl.FRAMEBUFFER, frameBuffer);
-    // gl.useProgram(pprogram);
-    // gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas);
-    // gl.drawArrays(gl.ACTIVE_TEXTURE, 0, rectangle.getVertCount());
 }
-
-// function drawScene(now)
-// {
-//     postProcessing(now);
-//     requestAnimationFrame(drawScene);
-// }
-
-// let iconDiv = document.getElementsByName("iconContainer")[0]
 function drawScene(now)
 {
-    // rot += 0.01
-    // Calculate time to render frames
     now *= 0.001;
     var deltaTime = now - then;
     then = now;
-
 
     // Part for timers
     hTimer.tick(deltaTime);
     fTimer.tick(deltaTime);
     // pTimer.tick(deltaTime);
-    if(fTimer.time < Number.EPSILON)
+    if(fTimer.flip && animation < 4 && document.hasFocus())
         rectangle.activateNext();
 
     resizeCanvasToDisplaySize(<HTMLCanvasElement>gl.canvas);
@@ -216,44 +204,64 @@ function drawScene(now)
 
     let matrix = m4.orthographic((<HTMLCanvasElement>gl.canvas).clientWidth, (<HTMLCanvasElement>gl.canvas).clientHeight, totalDepth / 2, -totalDepth / 2);
     let boxStart = [gl.canvas.width / 2, gl.canvas.height / 2 - boxOffset * resizeRatio]
-    matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
-    matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
+    // matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
+    // matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
 
     // iconDiv.style.top = `${0}px`
     let newBoxSize = boxSize * resizeRatio;
-    iconDiv.style.left = `${boxStart[0] - newBoxSize / 2}px`
-    iconDiv.style.top = `${boxStart[1] - newBoxSize / 2}px`
-    // iconDiv.style.left = `${100}px`
-    iconDiv.style.height = `${newBoxSize}px`
-    iconDiv.style.width = `${newBoxSize}px`
+
+    if(iconDiv)
+    {
+        iconDiv.style.left = `${boxStart[0] - newBoxSize / 2}px`
+        iconDiv.style.top = `${boxStart[1] - newBoxSize / 2}px`
+        iconDiv.style.height = `${newBoxSize}px`
+        iconDiv.style.width = `${newBoxSize}px`
+    }
     if(animation == 0)
     {
-        // matrix = m4.multiply(matrix, m4.zRotation(Math.PI / 4));
-        // matrix = m4.multiply(matrix, m4.yRotation(rot));
+        matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
+        // matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
+
         matrix = m4.multiply(matrix, m4.xRotation(initialRot));
         matrix = m4.multiply(matrix, m4.yRotation(initialRot));
-        // matrix = m4.multiply(matrix, m4.yRotation(Math.PI / 4 + rot));
-        // matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
+        matrix = m4.multiply(matrix, m4.yRotation(-maxMouseRot * (mousex - 0.5)));
         matrix = m4.multiply(matrix, m4.translation(0, -easing(hTimer.time) * hoverHeight * resizeRatio, resizeRatio));
-        matrix = m4.multiply(matrix, m4.scaling(mainBoxScale, mainBoxScale, mainBoxScale))
+        matrix = m4.multiply(matrix, m4.scaling(mainBoxScale * resizeRatio, mainBoxScale * resizeRatio, mainBoxScale * resizeRatio))
     }
     else if(animation == 1)
     {
+        matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
+        matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
         aTimer.tick(deltaTime);
-        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [-initialRot, 0], [0, -initialRot], pTimer, deltaTime, () => { SpawnIcon(newBoxSize, <string>menuRoutes[animation - 1][1]); if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
+        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [-initialRot, 0], [0, -initialRot], pTimer, deltaTime, bool1, () => {  if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]};} );
         matrix = m4.multiply(matrix, anim.interpolate(easing(Math.min(aTimer.time + animOffset, 1))));
     }
     else if(animation == 2)
     {
+        matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
+        matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
+        
         aTimer.tick(deltaTime);
-        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [0, initialRot], [-initialRot, 0], pTimer, deltaTime, () => { SpawnIcon(newBoxSize, <string>menuRoutes[animation - 1][1]); if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
+        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [0, initialRot], [-initialRot, 0], pTimer, deltaTime, bool2, () => { if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
         matrix = m4.multiply(matrix, anim.interpolate(easing(Math.min(aTimer.time + animOffset, 1))));
     }
     else if(animation == 3)
     {
+        matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
+        matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
+
         aTimer.tick(deltaTime);
-        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [initialRot, 0], [0, initialRot], pTimer, deltaTime, () => { SpawnIcon(newBoxSize, <string>menuRoutes[animation - 1][1]); if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
+        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [initialRot, 0], [0, initialRot], pTimer, deltaTime, bool3, () => { if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
         matrix = m4.multiply(matrix, anim.interpolate(easing(Math.min(aTimer.time + animOffset, 1))));
+    }
+    else if(animation == 4)
+    {
+        aTimer.tick(deltaTime);
+        matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
+        matrix = m4.multiply(matrix, m4.xRotation(initialRot));
+        matrix = m4.multiply(matrix, m4.yRotation(initialRot));
+        matrix = m4.multiply(matrix, m4.yRotation(aTimer.time * SlowRotation));
+        matrix = m4.multiply(matrix, m4.scaling(BlogResize * resizeRatio, BlogResize * resizeRatio, BlogResize * resizeRatio))
     }
 
 
@@ -289,10 +297,10 @@ function drawScene(now)
     requestAnimationFrame(drawScene)
 }
 
-function SpawnIcon(size : number, name : string) : void
+function SpawnIcon(name : string) : void
 {
     let icon = document.createElement("i")
-    icon.className = `fa-solid ${name} fa-${Math.floor(size / 50)}x`
+    icon.className = `fa-solid ${name}`
     icon.style.textAlign = "center"
     icon.style.color = lightGrey
     iconDiv.innerHTML = ""
@@ -349,26 +357,32 @@ function AddSubHome(pages : string[])
     }
 }
 
+document.onmousemove = (e) => 
+{
+    mousex = e.clientX / canvas.width;
+}
+
 //#region Mithriljs
 
-function MenuView() : any
+function MenuView(Menucall : () => void) : any
 {
     return {
         oncreate : function() {
-            iconDiv = document.getElementsByName("iconContainer")[0]
-            optionDiv = document.getElementsByName("options")[0]
+            iconDiv = document.getElementById("iconContainer")
+            optionDiv = document.getElementById("options")
             copyDiv = document.getElementById("copyRight")
-            AddMenuHome();
+            Menucall();
+            // requestAnimationFrame(drawScene);
         },
         view: function() {
             return m("div", {class : "foreground"},
             [
-                m("div", {name : "iconContainer"}),
+                m("div", {id : "iconContainer"}),
                 m("div", {id : "topBar"}),
                 m("div", {id : "visualBar"}),
                 m("div", {id : "centerBar"}, 
                 [
-                    m("div", {name : "options", id : "options"})
+                    m("div", {id : "options"})
                 ]),
                 m("div", {id : "footerBar"},
                 [
@@ -379,36 +393,80 @@ function MenuView() : any
     }
 }
 
-function BlogView() : any
+function BlogView(Menucall : () => void) : any
 {
     return {
         oncreate : function() {
-            blogDiv = document.getElementsByName("article")[0]
-            thumbDiv = document.getElementsByName("")[0]
-            copyDiv = document.getElementsByName("copyRight")[0]
-            AddMenuHome();
+            blogDiv = document.getElementById("article")
+            thumbDiv = document.getElementById("thumbnail")
+            ratingDiv = document.getElementById("rating")
+            Menucall();
         },
         view: function() {
             return m("div", {class : "foreground"},
             [
-                m("div", {name : "iconContainer"}),
-                m("div", {id : "topBar"}),
-                m("div", {id : "visualBar"}),
-                m("div", {id : "centerBar"}, 
+                // m("h1", "Article " + m.route.param("article")),
+                m("div", {id : "article"}),
+                m("div", {id : "thumbnail"}, 
                 [
-                    m("div", {name : "options", id : "options"})
-                ]),
-                m("div", {id : "footerBar"},
-                [
-                    m("i", {class : "fa-regular fa-copyright", name : "copyRight", id : "copyRight"})
-                ]),
+                    m("div", {id : "rating"})
+                ])
             ])
         }
     }
 
 }
 
-let Menu = MenuView()
+let Home = MenuView(AddMenuHome)
+let Reviews = MenuView(() =>
+    {
+        m.request({
+            method : "GET",
+            url : "/content/reviews"
+        }).then(function(items){ AddSubHome(<string[]>items); SpawnIcon(<string>menuRoutes[animation - 1][1]);})
+    }
+)
+let Creative = MenuView(() =>
+    {
+        m.request({
+            method : "GET",
+            url : "/content/creative"
+        }).then(function(items){ AddSubHome(<string[]>items); SpawnIcon(<string>menuRoutes[animation - 1][1]);})
+    }
+)
+let About = MenuView(() =>
+    {
+        m.request({
+            method : "GET",
+            url : "/content/about"
+        }).then(function(items){ AddSubHome(<string[]>items); SpawnIcon(<string>menuRoutes[animation - 1][1]);})
+    }
+)
+
+let Review = BlogView(() =>
+    {
+        // const req = new XMLHttpRequest();
+        // req.addEventListener("load", () => {console.log(req.responseText)});
+        // req.open("GET", "/content/reviews/Bioshock/uhm.txt");
+        // req.send();
+
+        m.request({
+            method: "GET",
+            url: "/content/reviews/Bioshock/uhm.txt",
+            extract: function(xhr) {return xhr.responseText},
+        })
+        .then(function(response) {
+            console.log(response)
+        })
+
+        // m.request({
+        //     method : "GET",
+        //     url : "/content/reviews/Bioshock/uhm.txt",
+        //     // params : {article : m.route.param("article")},
+        //     deserialize : function(val) {return val}
+        // }).then(function(items){console.log(items)})
+    }
+)
 
 let Warning = {
     view: function() {
@@ -416,21 +474,18 @@ let Warning = {
 	}
 }
 
-m.route(start, gl ? "/loading" : "/warning", {
-    "/loading" : Menu,
+m.route(start, gl ? "/home" : "/warning", {
     "/home" : {
         onmatch : function(args, requestedPath, route)
         {
-            if(document.getElementsByName("iconContainer").length > 0)
-            {
-                DestroyIcon()
-                AddMenuHome()
-            }
+            bool1.reset()
+            bool2.reset()
+            bool3.reset()
             aTimer.time = 0;
             pTimer.time = 0;
             animation = 0;
             animOffset = 0;
-            return Menu;
+            return Home;
         }
     },
     "/reviews" : {
@@ -443,7 +498,7 @@ m.route(start, gl ? "/loading" : "/warning", {
                 url : "/content/reviews"
             }).then(function(items){ AddSubHome(<string[]>items); })
             // AddMenuHome();
-            return Menu;
+            return Reviews;
         }
     },
     "/creative" : {
@@ -451,7 +506,7 @@ m.route(start, gl ? "/loading" : "/warning", {
         {
             animation = 2;
             animOffset = 1;
-            return Menu;
+            return Creative;
         }
     },
     "/about" : {
@@ -459,7 +514,15 @@ m.route(start, gl ? "/loading" : "/warning", {
         {
             animation = 3;
             animOffset = 1;
-            return Menu;
+            return About;
+        }
+    },
+	"/review/:article": {
+        onmatch : function(args, requestedPath, route)
+        {
+            animation = 4;
+            animOffset = 0;
+            return Review;
         }
     },
 	"/warning": {
@@ -472,30 +535,5 @@ m.route(start, gl ? "/loading" : "/warning", {
 })
 //#endregion
 
-m.request({
-    method : "GET",
-    url : "/content/reviews"
-}).then(function(items){ console.log(items); })
 
-// Used so the route is actually completed before querying itemcontainer from the dom
-await new Promise(async () => {
-    await setTimeout(() =>{
-    iconDiv = document.getElementsByName("iconContainer")[0]
-    iconDiv.style.position = "absolute"
-    iconDiv.style.display = "flex"
-    iconDiv.style.justifyContent = "center"
-    iconDiv.style.alignItems = "center"
-    window.location.href = "#!/home"
-    requestAnimationFrame(drawScene)
-    }, 100);
-})
-
-// .then(
-//     await new Promise(async () => {
-//         await setTimeout(() =>{
-//         window.location.href = "#!/warning"
-//         requestAnimationFrame(drawScene)
-//         }, 1000);
-//     })
-
-// )
+requestAnimationFrame(drawScene);

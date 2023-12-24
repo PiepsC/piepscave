@@ -15,10 +15,11 @@ body {
 
 #article{
 	position: absolute;
-	width: 80%;
+	width: calc(90% + calc(6vh - 1vw));
 	height: 100%;
 	margin-left : 0%;
-	margin-right: 20%;
+	margin-right: calc(6vh - 1vw);
+	max-width: 100%;
 	background-color: white;
 	overflow-y: scroll;
 }
@@ -42,12 +43,11 @@ body {
 	background-color: blue;
 	width: 30vh;
 	height: 30vh;
-	right : calc(5vw - 2vh);
-	/* right : calc(8vw - 3vh); */
+	right : calc(14vw - 23vh);
 	top : 3vh;
 	rotate : 10deg;
-	max-height: 20vw;
-	max-width: 20vw;
+	max-height: 18vw;
+	max-width: 18vw;
 	border: black;
 	border-style: solid;
 	border-width: 4px;
@@ -116,7 +116,20 @@ body {
 #visualBar{
 	position: relative;
 	width: 90%;
-	height: 26%;
+	height: 30%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+#footerBar{
+	width: 90%;
+	height: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+#topBar{
+	width: 90%;
+	height: 12%;
 	margin-left: 5%;
 	margin-right: 5%;
 }
@@ -124,7 +137,7 @@ body {
 #centerBar{
 	position: relative;
 	width: 90%;
-	height: 55%;
+	height: 53%;
 	margin-left: 5%;
 	margin-right: 5%;
 	display: flex;
@@ -138,29 +151,30 @@ body {
 	width: 60%;
 	max-width: 40vh;
 	height: 75%;
-	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	display: flex;
 	flex-direction: column;
-	/* justify-content:flex-end; */
 	align-items: center;
 	justify-content: flex-start;
+	z-index: 0;
 }
 
-
-/* #options > div > i */
 #hoverButton
 {
 	position: relative;
-	text-align:center;
-	font-size: max(2.9vh, 1.3vw);
-	margin-top: 2%;
+	text-align: center;
+	font-size: max(2.8vh, 1.3vw);
+	margin-top: 1.2vh;
 	border-color: #969696;
 	border-style: none;
 	color: #969696;
-	background-color:#46464600;
+	background-color:#464646;
 	width: 80%;
 	height: calc(60px + max(3vh, 1.3vw));
-	transition: color 0.5s, border-color 0.5s, background-color 0.5s, height 0.5s, font-size 0.5s;
+	/* box-shadow: 0px 0px 0px 5px #0ff; */
+	/* background-image: linear-gradient(90deg, rgba(255, 0, 0, 255), #464646); */
+	transition: color 0.4s, border-color 0.4s, background-color 0.4s, height 0.4s, font-size 0.4s;
 }
 
 #hoverButton.disabled
@@ -172,29 +186,29 @@ body {
 	font-size: 0px;
 }
 
+#iconContainer
+{
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#iconContainer > i
+{
+	font-size: 10vh;
+}
+
 #article
 {
-	background-color: rgba(255, 255, 255, 0.856);
+	background-color: rgba(180, 180, 180, 0.96);
 }
 
 #hoverButton:hover:not(:disabled)
 {
-	font-size: max(2.9vh, 1.3vw);
+	font-size: max(2.8vh, 1.3vw);
 	background-color: #969696;
 	color : #464646;
 	transition: color 0.5s, border-color 0.5s, background-color 0.5s;
 	height: calc(60px + max(3vh, 1.3vw));
-}
-
-#footerBar{
-	width: 90%;
-	height: 5%;
-	margin-left: 5%;
-	margin-right: 5%;
-}
-#topBar{
-	width: 90%;
-	height: 14%;
-	margin-left: 5%;
-	margin-right: 5%;
 }

@@ -156,6 +156,17 @@ class Composite
 	}
 }
 
+// Allow passing by reference
+export class ToggleBoolean
+{
+	value : boolean;
+	readonly start : boolean;
+
+	constructor(value : boolean) { this.value = value; this.start = value; }
+
+	reset() {this.value = this.start;}
+}
+
 // A class to encode the simple cube animation that plays before routing
 export class CubeAnimation
 {
@@ -170,9 +181,9 @@ export class CubeAnimation
 
 	timer : Timer
 	callback : () => void;
-	called = true;
+	called : ToggleBoolean;
 
-	constructor(location : vector, rotation : vector, scale : number, boundary : number, scaleTarget : number, rotateTarget1 : vector, rotateTarget2 : vector, timer : Timer, delta : number, callback? : () => void)
+	constructor(location : vector, rotation : vector, scale : number, boundary : number, scaleTarget : number, rotateTarget1 : vector, rotateTarget2 : vector, timer : Timer, delta : number, called? : ToggleBoolean, callback? : () => void)
 	{
 		this.startPosition = location;
 		this.startRotation = rotation;
@@ -183,11 +194,9 @@ export class CubeAnimation
 		this.scaTarget = scaleTarget;
 		this.delta = delta;
 		this.timer = timer;
+		this.called = called;
 		if(callback)
-		{
 			this.callback = callback;
-			this.called = false;
-		}
 	}
 
 	interpolate(value : number) : matrix
@@ -219,9 +228,9 @@ export class CubeAnimation
 		}
 		else
 		{
-			if(!this.called)
+			if(!this.called.value)
 			{
-				this.called = true;
+				this.called.value = true;
 				this.callback();
 			}
 			translation = [0, 0]
@@ -242,6 +251,7 @@ export class Timer
 	readonly max : number;
 	time : number;
 	increasing : boolean;
+	flip = false;
 	tick : (delta : number) => void;
 	constructor(offset : number, step = 1, max? : number)
 	{
@@ -258,9 +268,10 @@ export class Timer
 
 	non_alternating(delta : number) {this.time = this.time >= Number.MAX_VALUE - Number.EPSILON ? 0 : this.time + this.step * delta;}
 	alternating(delta : number) {
+		this.flip = this.increasing;
 		this.increasing = this.time < Number.EPSILON || (this.increasing && this.time < this.max - Number.EPSILON);
-
-		this.time += this.increasing ? this.step * delta : -this.step * delta;
+		this.flip = this.flip != this.increasing;
+		this.time = this.time + (this.increasing ? this.step * delta : -this.step * delta);
 	}
 }
 
@@ -341,7 +352,6 @@ export class Rectangle
 			new Lattice(segmentsPerLattice, size, color, this.activeColor, m4.multiply(m4.multiply(m4.translation(- size / 2, -size / 2, -size / 2), m4.zRotation(Math.PI / 2)), m4.xRotation(Math.PI / 2))));
 		let cRFL = new Composite(new Lattice(segmentsPerLattice, size, color, this.activeColor, m4.multiply(m4.translation(+ size / 2 - delta, size / 2, -size / 2), m4.zRotation(-Math.PI / 2))), new Lattice(segmentsPerLattice, size, color, this.activeColor, m4.multiply(m4.multiply(m4.translation(+ size / 2, size / 2, -size / 2 + delta), m4.zRotation(-Math.PI / 2)), m4.xRotation(-Math.PI / 2))));
 		// NOTE: UNEVEN COMPOSITION!!!
-		console.log("lolwhy")
 		let cTFL = new Composite(new Lattice(segmentsPerLattice - 2, size - 2 * delta, color, this.activeColor, m4.multiply(m4.translation(size / 2 - delta, -size / 2 + delta, -size / 2), m4.zRotation(Math.PI))),
 			new Lattice(segmentsPerLattice, size, color, this.activeColor, m4.multiply(m4.multiply(m4.translation(size / 2, -size / 2, -size / 2 + delta), m4.zRotation(Math.PI)), m4.xRotation(-Math.PI / 2)), 1));
 		let cBFL = new Composite(new Lattice(segmentsPerLattice - 2, size - 2 * delta, color, this.activeColor, m4.multiply(m4.translation(- size / 2 + delta, size / 2 - delta, -size / 2), m4.zRotation(0))), new Lattice(segmentsPerLattice, size, color, this.activeColor, m4.multiply(m4.translation(- size / 2, size / 2, -size / 2), m4.xRotation(Math.PI / 2)), 1));
