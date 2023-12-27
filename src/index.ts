@@ -2,6 +2,7 @@ import m, { Vnode } from "mithril";
 import {createProgram, createShader, resizeCanvasToDisplaySize, setGeometry, setColors, m4, setRectangleVert, setRectangleUV} from "./glUtilities";
 import {Timer, Rectangle, CubeAnimation, ToggleBoolean} from "./objects";
 import BezierEasing from "bezier-easing";
+import {parse} from "marked";
 
 
 let refHeight = 1080; //Reference screen height
@@ -41,7 +42,7 @@ let iconDiv, optionDiv, copyDiv;
 // For blog page
 let blogDiv, ratingDiv, thumbDiv;
 // For mouse tracking
-let mousex, mousey;
+let mousex;
 
 // Menu routes. Others are dynamic, depending on the available files. Format (title, icon, animation, route)
 const menuRoutes = [
@@ -393,14 +394,14 @@ function MenuView(Menucall : () => void) : any
     }
 }
 
-function BlogView(Menucall : () => void) : any
+function BlogView(Menucall : () => any) : any
 {
     return {
-        oncreate : function() {
+        oncreate : async function() {
             blogDiv = document.getElementById("article")
             thumbDiv = document.getElementById("thumbnail")
             ratingDiv = document.getElementById("rating")
-            Menucall();
+            blogDiv.innerHTML = await Menucall();
         },
         view: function() {
             return m("div", {class : "foreground"},
@@ -443,28 +444,16 @@ let About = MenuView(() =>
     }
 )
 
-let Review = BlogView(() =>
+let Review = BlogView(async () =>
     {
-        // const req = new XMLHttpRequest();
-        // req.addEventListener("load", () => {console.log(req.responseText)});
-        // req.open("GET", "/content/reviews/Bioshock/uhm.txt");
-        // req.send();
-
-        m.request({
+        return m.request({
             method: "GET",
-            url: "/content/reviews/Bioshock/uhm.txt",
-            extract: function(xhr) {return xhr.responseText},
+            url: `/content/reviews/${m.route.param("article")}/${m.route.param("article")}.md`,
+            extract: function(xhr) { return xhr.responseText },
         })
         .then(function(response) {
-            console.log(response)
+            return parse(response)
         })
-
-        // m.request({
-        //     method : "GET",
-        //     url : "/content/reviews/Bioshock/uhm.txt",
-        //     // params : {article : m.route.param("article")},
-        //     deserialize : function(val) {return val}
-        // }).then(function(items){console.log(items)})
     }
 )
 

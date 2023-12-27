@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "bezier-easing": "^2.1.0",
+    "marked": "^11.1.0",
     "mithril": "^2.2.2"
   }
 }

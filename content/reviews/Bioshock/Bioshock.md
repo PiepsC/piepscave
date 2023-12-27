@@ -1,1 +1,5 @@
-here is some text
+## Here we go
+
+Lorem Ipsum dola etc
+
+![Brink](content\reviews\Bioshock\image.jpg)
