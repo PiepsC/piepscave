@@ -20,6 +20,7 @@ body {
 	max-width: 100%;
 	background-color: rgba(180, 180, 180, 0.96);
 	padding-left: 2%;
+	padding-right: 2%;
 	font-size: max(1vw, 1.8vh);
 	overflow: scroll;
 }
@@ -32,11 +33,11 @@ body {
 
 #article > table * > img
 {
-	max-width: 70vw;
+	max-width: 60vw;
 	border: black;
 	border-style: solid;
 	border-width: 4px;
-	box-shadow: 0.5vw 0.5vw;
+	box-shadow: 0.3vw 0.3vw;
 }
 
 #cv{
@@ -135,6 +136,12 @@ body {
 	border-width: 4px;
 	padding: 0;
 	margin: 0;
+}
+
+#thumbnail > img
+{
+	width: 100%;
+	height: 100%;
 }
 
 #rating{

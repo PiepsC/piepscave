@@ -303,9 +303,20 @@ function SpawnIcon(name : string) : void
     iconDiv.appendChild(icon)
 }
 
-function DestroyIcon()
+//0 = full star, 1 = half star, 2 = empty star
+function SpawnStar(index : number) : void
 {
-    iconDiv.innerHTML = ""
+    let icon = document.createElement("i")
+    icon.className = `${index == 2 ? "fa-regular" : "fa-solid"} ${index != 1 ? "fa-star" : "fa-star-half-stroke"}`
+    ratingDiv.appendChild(icon);
+}
+
+function SpawnThumbnail(source : string) : void
+{
+    let image = document.createElement("img")
+    image.id = "thumbimage";
+    image.src = source;
+    thumbDiv.appendChild(image);
 }
 
 function AddMenuHome()
@@ -323,7 +334,6 @@ function AddMenuHome()
         let icon = document.createElement("i")
         icon.className = `fa-solid ${menuRoutes[i][1]}`
         icon.style.textAlign = "center"
-        // icon.style.color = lightGrey
         button.addEventListener('click', () => { animOffset = 0; aTimer.time = 0; pTimer.time = 0; menuButtons.forEach((b) => {b.className = "disabled"; b.disabled = true}); animation = <number>menuRoutes[i][2];})
         optionDiv.appendChild(button)
         button.appendChild(icon)
@@ -453,14 +463,32 @@ let Review = BlogView(
             })
             .then(function(response) {
                 return [parse(response)]
-            }).then((chain) => 
+            }).then(async (chain) => 
             {
-                return chain.concat("yo");
+                let response = await m.request({
+                    method: "GET",
+                    url: `/content/reviews/${param}/r_${param}.txt`,
+                    extract: function(xhr) { return xhr. responseText }
+                }).then(function(response) {
+                    return response;
+                })
+                return chain.concat(response);
             })
         };
 
         let response = await call();
+        let stars = Number(response[1]);
         blogDiv.innerHTML = response[0];
+        SpawnThumbnail(`/content/reviews/${param}/t_${param}.jpg`);
+        for(let i = 0; i < 10; i+= 2)
+        {
+            if(i == stars - 1)
+                SpawnStar(1);
+            else if(i < stars)
+                SpawnStar(0);
+            else
+                SpawnStar(2);
+        }
     }
 )
 
@@ -493,7 +521,6 @@ m.route(start, gl ? "/home" : "/warning", {
                 method : "GET",
                 url : "/content/reviews"
             }).then(function(items){ AddSubHome(<string[]>items); })
-            // AddMenuHome();
             return Reviews;
         }
     },
