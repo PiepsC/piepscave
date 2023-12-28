@@ -2,4 +2,6 @@
 
 Lorem Ipsum dola etc
 
-![Brink](content\reviews\Bioshock\image.jpg)
+| ![Brink](content\reviews\Bioshock\image.jpg) |
+| :--: |
+| Caption |

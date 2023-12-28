@@ -26,9 +26,19 @@ body {
 	overflow: scroll;
 }
 
-#article > img
+#article > table
 {
-	width: 0%;
+	width: 100%;
+	text-align: center;
+}
+
+#article > table * > img
+{
+	max-width: 70vw;
+	border: black;
+	border-style: solid;
+	border-width: 4px;
+	box-shadow: 0.5vw 0.5vw;
 }
 
 #cv{
@@ -129,13 +139,6 @@ body {
 	margin: 0;
 }
 
-#thumbnail > img
-{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
-
 #rating{
 	position: absolute;
 	width: 120%;
@@ -150,7 +153,7 @@ body {
 	border: black;
 	border-style: solid;
 	border-width: 4px;
-	box-shadow: 10px 10px;
+	box-shadow: 0.5vw 0.5vw;
 }
 
 #rating > i
@@ -167,6 +170,7 @@ body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
+	overflow: hidden;
 }
 
 .background{
