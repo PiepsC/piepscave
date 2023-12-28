@@ -2,8 +2,7 @@ import m, { Vnode } from "mithril";
 import {createProgram, createShader, resizeCanvasToDisplaySize, setGeometry, setColors, m4, setRectangleVert, setRectangleUV} from "./glUtilities";
 import {Timer, Rectangle, CubeAnimation, ToggleBoolean} from "./objects";
 import BezierEasing from "bezier-easing";
-import {parse} from "marked";
-
+import {parse, marked} from "marked";
 
 let refHeight = 1080; //Reference screen height
 let resizeRatio = 1;
@@ -205,10 +204,6 @@ function drawScene(now)
 
     let matrix = m4.orthographic((<HTMLCanvasElement>gl.canvas).clientWidth, (<HTMLCanvasElement>gl.canvas).clientHeight, totalDepth / 2, -totalDepth / 2);
     let boxStart = [gl.canvas.width / 2, gl.canvas.height / 2 - boxOffset * resizeRatio]
-    // matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
-    // matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
-
-    // iconDiv.style.top = `${0}px`
     let newBoxSize = boxSize * resizeRatio;
 
     if(iconDiv)
@@ -350,8 +345,6 @@ function AddSubHome(pages : string[])
         button.id = "hoverButton"
         button.disabled = false;
         button.style.textAlign = "center"
-        // icon.style.color = lightGrey
-        // button.addEventListener('click', () => { animOffset = 0; aTimer.time = 0; pTimer.time = 0; menuButtons.forEach((b) => {b.className = "disabled"; b.disabled = true}); animation = <number>menuRoutes[i][2];})
         optionDiv.appendChild(button)
         button.textContent = `${pages[i]}`
         menuButtons = menuButtons.concat(button)
@@ -373,7 +366,6 @@ function MenuView(Menucall : () => void) : any
             optionDiv = document.getElementById("options")
             copyDiv = document.getElementById("copyRight")
             Menucall();
-            // requestAnimationFrame(drawScene);
         },
         view: function() {
             return m("div", {class : "foreground"},
@@ -401,13 +393,17 @@ function BlogView(Menucall : () => any) : any
             blogDiv = document.getElementById("article")
             thumbDiv = document.getElementById("thumbnail")
             ratingDiv = document.getElementById("rating")
-            blogDiv.innerHTML = await Menucall();
+            thumbDiv.addEventListener("click", (e) =>
+            {
+                thumbDiv.remove();
+            })
+            await Menucall();
         },
         view: function() {
             return m("div", {class : "foreground"},
             [
-                // m("h1", "Article " + m.route.param("article")),
-                m("div", {id : "article"}),
+                m("div", {id : "article"},
+                ),
                 m("div", {id : "thumbnail"}, 
                 [
                     m("div", {id : "rating"})
@@ -444,16 +440,27 @@ let About = MenuView(() =>
     }
 )
 
-let Review = BlogView(async () =>
+let Review = BlogView(
+    async () =>
     {
-        return m.request({
-            method: "GET",
-            url: `/content/reviews/${m.route.param("article")}/${m.route.param("article")}.md`,
-            extract: function(xhr) { return xhr.responseText },
-        })
-        .then(function(response) {
-            return parse(response)
-        })
+        let param = m.route.param("article");
+        let call = async () =>
+        {
+            return m.request({
+                method: "GET",
+                url: `/content/reviews/${param}/${param}.md`,
+                extract: function(xhr) { return xhr.responseText },
+            })
+            .then(function(response) {
+                return [parse(response)]
+            }).then((chain) => 
+            {
+                return chain.concat("yo");
+            })
+        };
+
+        let response = await call();
+        blogDiv.innerHTML = response[0];
     }
 )
 

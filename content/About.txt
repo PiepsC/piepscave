@@ -1,5 +1,3 @@
 This file is more of a reminder to myself.
 
-In order for this to work each folder needs to have a Markdown file with the same name as the closest encapsulating directory. In this directory there must be a PNG called "Thumbnail.png". There must also be a text file called "Rating.txt", which contains only a single integer in the range from 0 to 10.
-
-Besides that the directory must contain a file called "Contents.txt", which has the name of each section on a newline, starting with a capital letter. The document MUST contain this section, and it must be named identically but with a lower letter
+In order for this to work each folder needs to have a Markdown file with the same name as the closest encapsulating directory. In this directory there must be a PNG called "t_{name}.png". There must also be a text file called "r_{name}.txt", which contains only a single integer in the range from 0 to 10.

@@ -15,10 +15,8 @@ body {
 
 #article{
 	position: absolute;
-	width: calc(90% + calc(6vh - 1vw));
+	width: min(calc(90% + calc(6vh - 1vw)), 98%);
 	height: 100%;
-	margin-left : 0%;
-	margin-right: calc(6vh - 1vw);
 	max-width: 100%;
 	background-color: rgba(180, 180, 180, 0.96);
 	padding-left: 2%;
@@ -162,7 +160,6 @@ body {
 	margin-left: 5%;
 	font-size: min(3vh, 2vw);
 }
-
 
 .foreground{
 	position: absolute;
