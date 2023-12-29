@@ -1,20 +1,61 @@
 # Brink(2011) game review
 
+### Disclaimer
+These articles are designed to be read on horizontally oriented aspect ratios, but should work on any screen. If this is not the case please do contact me! The thumbnail and star rating on the right side of the screen can be disabled by clicking on it. In case the article is a little too drawn out for your liking there is a summary at the very end.
+
 ## Introduction
 Brink was released in May 2011 after a long, carefully executed marketing campaign. It is developed by Splash Damage and published by Bethesda Softworks. The engine used was the late id Tech 4 engine (Doom 3 engine). Upon initial reception the game was met with middling reviews, specifically more unfavorably on the end of the consumers. The general consensus was the game did not live up to the marketing material and was not in a complete working state. Plagued by poor performance on common systems, questionable net-code, mediocre game-feel and a strangely implemented progression system the game found itself in a rapid decline mere weeks after launch.
 
 Looking back on Brink in 2023 makes it a fascinating trainwreck of poor planning, inconsistent execution and overhyping to caricatural degrees. But not all is bad: even though extraordinarily flawed Brink does stand as a unique, rather daring product that falls in-line with Splash Damage's previous and subsequent works. Brink can, as of writing this article, still be obtained on Steam, entirely for free. It is only playable locally or through peer to peer.
-
-## Tl:dr
-Albeit bold, Brink does not deliver on the premise the developers were striving for. It is an almost objectively inferior version of Splash Damage's later *Dirty Bomb* (now also defunct). It's movement system, even though mostly functional, is neither satisfying as tactical- nor movement shooter. The visual style is distinct and bold, but the texture work remains inconsistent at best. The map design is stagnant and does not justify the size of most maps. Body types feel awkwardly balanced, leaving especially the medium class without options. The progression system is very hostile towards new players, allowing for various direct upgrades to be obtained over time (including locking body types behind an XP wall). The objectives destroy proper pacing in most matches and the fact that both teams converge on them most of the match invalidates the "parkour" aspect the game was promoted with.
-
-Despite its shortcomings Brink is worth trying and sets the stage for much better games. Many things the game commits to might have worked on paper, but got lost in the confusion between the design document and the actual implementation. The strongest point of Brink is in its presentation, with decent sound design, clean menus, plenty of cosmetic items and a distinct, rugged look.
-
-**Verdict: 4/10 - "mediocre"**
 
 | ![Brink](content\reviews\Brink\cutscene.jpg) |
 | :--: |
 | Brink: a story of two extremes united in mediocrity |
 
 ## The premise
-Before even announcing Brink Splash Damage was known for games like *Wolfenstein : Enemy Territory* and, to a much lesser degree *Enemy Territory: Quake Wars* (another John Carmack game, also made with the id Tech 4 engine).
+Before even announcing Brink Splash Damage was known for games like *Wolfenstein : Enemy Territory* and, to a much lesser degree *Enemy Territory: Quake Wars* (another John Carmack game, also made with the id Tech 4 engine). Brink is an extension of these games in a way: another first person, role based, objective based shooter. Brink innovates on this formula by adding body-types and trying to integrate the story directly into its online matches - or at least, as such it was promoted.
+
+The maps in Brink are designed around the body-types and flanking routes. The light body-type is capable of traversing terrain through wall-jumping, opening (very few) new pathways. Flanking routes are available to every body-type as long as the appropriate side-objective is completed first; usually some form of blowing up a barrier or capturing a "control point". In theory this concept is quite neat: the light type plays unusual angles whereas the side-objectives offer a means to tackle a difficult chokepoint.
+
+When it comes to the speed at which the game plays Brink leans, surprisingly, more into being a tactical shooter. Combined with a comparatively (in comparison to other popular shooters at the time) long TTK, incredibly inaccurate weapons and various (over)heal options this would make even fights slow and drawn out. However, the urgency of the objective often forces players to engage one another head-on, fortunately alleviating the perpetual stalemate somewhat. Since none of the maps seem to allow for a great deal of freedom of movement this feels like a deliberate albeit odd choice, considering the way the game was marketed.
+
+The game opens up as the player progresses through the ranks, going as far as to tie even the body-types to an XP gate. As the player accumulates more meta experience they also get gradually more powerful through the perk system. Most weapons are locked behind having to complete various solo-play challenges. This model effectively guarantees a double negative feedback for new players: their inexperience is further punished by being objectively weaker than their more seasoned opponents.
+
+Brink offers a total of four classes: the Soldier, the Operative, the Medic and the Engineer. Each excelling into a specific role. The Soldier allows people to continue to fire their guns by dishing out ammunition, the Operative can disguise themselves as hostiles and "hack" various objectives, the Medic can heal and revive allies and the Engineer can provide additional overheal and build various tactical boons. Most of the time people will have to adapt to the team's needs based on the current objective (i.e. the current objective might require some class to interact with it).
+
+## In reality
+When it comes to the actual game almost everything the game attempts to do either falls flat or does not manifest itself the way the designers had intended. Brink's biggest shortcoming is being utterly confused in its implementation.
+
+The most obvious flaw is being stuck between trying to be a movement- and tactical shooter. It facilitates the SMART system to quickly traverse terrain; a decent enough vaulting implementation, but does not really give players much of a reason to use it. Sliding does not generate momentum, even on sloped geometry. Characters move very slowly and not using ADS makes the weapons comically inaccurate. Extensive vaulting during combat is a death sentence. The objectives themselves are also entirely tactical in nature, being designed around holding angles above all else. Unfortunately the game is not properly designed around this either - often making it very easy to just "outvalue" the opponent by drafting a well balanced team in spite of being at a tactical disadvantage. This same conflict also leads to the battlefield being constantly littered with downed allies waiting for a medic that most likely never arrives. Brink tries to commit to too many things at once and in the process doesn't excel at any of them.
+
+This issue ripples through the entire game like an annoying motif. The map design is another example: most of them are designed around a static or excruciatingly slow moving objective with very long, mostly pointless corridors leading to them. Since these objectives are by design prone to being advantageous to the defender the game allows the attackers to partake in various side-objectives, making attacking easier in some way. This sounds smart on paper, but considering how hilariously ineffective flanking is (unless coordinated) this pretty much always devolves to just slugging it out at the main objective. This issue was addressed in Splash Damage's later title *Dirty Bomb* by rebalancing the weapons, team-size and tactical tools - effectively making flanking a viable option. The only players benefitting from the flanking opportunities are those playing the light body-type, which not only gets access to new pathways but also might actually survive hit and run tactics (still debatable, might I add). In effect this leads to most maps feeling very stagnant, claustrophobic and chokepoint heavy with long empty runways leading to the main objective.
+
+The class based system suffers from the same issues modern games had to admit to: players joining public matches (or pugs) tend not to play in a way that benefits the team as a whole. Consequently obtaining a balanced, working team draft would be nearly impossible. Players that do coordinate would thus also be able to completely steamroll the opposition without much effort. But worse yet, in Brink this issue can lead to genuine deadlocks, as not all classes are capable of interacting with the main objective. It can be argued this isn't really a design issue, but it does make public matches especially unpleasant to play in.
+
+Even though Brink never developed a dedicated competitive scene I would expect the game to be very, *very* slow if this did occur. A combination of factors would most likely lead to practically all objectives being clogged with a never-ending slugfest of two teams trying to desperately get a foot between the door.
+
+Lastly there is another promotional spearhead that the game failed to deliver on: incorporating the game's story fluently in online matches. The way Brink hoped to achieve this is by narrating each mission from the perspective of the faction the player has joined as. In reality this feels like fragmented fluff that very vaguely justifies the setting. Upon completing a primary objective a small cutscene plays, transitioning the map to the next phase. Even though hardly invasive, this was again improved upon in the game's spiritual successor *Dirty Bomb* by making the transition feel less jarring and disconnected. Brink achieves no form of narrative immersion, effectively failing one if its biggest selling points (even though it confuses me to this day why they opted to blow this out of proportion out of all things).
+
+## The presentation
+
+I like to imagine Brink was carried through the approval process by its distinct, bold and expressive visuals. The presentation is by far the game's strongest point, offering unique gritty character design, clean menus, a decent UX, pleasant albeit slightly bland music and decent if not a little inconsistent sound effect design. The cosmetic system is also very fun and quite elaborate, allowing for many different permutations of clothing for both individual factions. The main menu is inviting and would lead you to believe you're actually playing a much better game than Brink.
+
+| ![Brink2](content\reviews\Brink\cosmetics.jpg) |
+| :--: |
+| Brink offers a cool, expressive cosmetic system |
+
+The overall design of the game is coherent and unusual in appearance, being caricatural in nature. The guns look like functional weapons. Even though the feedback on them is lacking, most of them sound good, emitting a particular "clicky" (less bassy), "plastic" sound, accompanied by the rattling of miscellaneous equipment when running around. In an interview with the sound designer it was explained they put in quite a bit of effort to make the weapons sound a specific way. Somewhat jarringly not all weapons sound like you would expect them to from their visual design.
+
+The map design is mostly rather bland but decent looking, or bland and awful looking - depending on whether you are playing an Ark based mission or one in the slums. In case of the first you will be met with mostly pristine, white backdrops and textures juxtaposed with vibrant bright colors. Usually conveying something like a public environ. In case of the latter you will be playing in an ugly trash heap with some of the worst color palettes I can recall in any game. In trying to convey oxidation the whole map has a muddy, unpleasant feces-like brown color giving little depth to the geometry.
+
+
+| ![Brink3](content\reviews\Brink\ark.jpg) |
+| :--: |
+| The Ark based levels have a pleasant, somewhat boring look |
+
+## Conclusion
+Albeit bold, Brink does not deliver on the premise the developers were striving for. It is an almost objectively inferior version of Splash Damage's later *Dirty Bomb* (now also defunct). Its movement system, even though mostly functional, is neither satisfying as tactical- nor movement shooter and surprisingly under-utilized. The visual style is distinct and bold, but the texture work remains inconsistent at best. The map design is stagnant and does not justify the size of most maps. Body types feel awkwardly balanced, leaving especially the medium class without options. The progression system is very hostile towards new players, allowing for various direct upgrades to be obtained over time (including locking body types behind an XP wall). The objectives destroy proper pacing in most matches and the fact that both teams converge on them most of the match invalidates the "parkour" aspect the game was promoted with.
+
+Despite its shortcomings Brink is worth trying and sets the stage for much better games. Many things the game commits to might have worked on paper, but got lost in the confusion between the design document and the actual implementation. The strongest point of Brink is in its presentation, with decent sound design, clean menus, plenty of cosmetic items and a distinct, rugged look.
+
+**Verdict: 4/10 - "mediocre"**

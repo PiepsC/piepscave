@@ -41,70 +41,37 @@ body {
 }
 
 #cv{
-	position: absolute;
-	width: 90%;
-	height: 100%;
-	margin-left : 3%;
+	position: relative;
+	width: calc(100% - 4vw);
+	height: calc(100% - 4vw);
+	margin-left: 2vw;
+	margin-top: 2vw;
 	display: grid;
 	grid-template-areas:
-	"p p b b b b"
-	"p p j j j j"
-	"s s s h h h"
-	"s s s c c c";
-	gap: 2%;
+	". . . . . . ."
+	". . . . . . ."
+	". . . . . . ."
+	"b b b b b b b"
+	"b b b b b b b"
+	"c c c c c c c";
+	gap: 1vw;
 	background-color: rgba(180, 180, 180, 0);
-}
-
-#portrait
-{
-	grid-area: p;
-	background-color: rgba(180, 180, 180, 0.5);
-	border-radius: 2%;
 }
 
 #bio
 {
 	grid-area: b;
-	padding-top: 0.5vw;
-	padding-left: 0.5vw;
+	padding: 0.5vw;
 	background-color: rgba(180, 180, 180, 0.5);
-	border-radius: 2%;
-}
-
-#jobs
-{
-	grid-area: j;
-	padding-top: 0.5vw;
-	padding-left: 0.5vw;
-	background-color: rgba(180, 180, 180, 0.5);
-	border-radius: 2%;
-}
-
-#skills
-{
-	grid-area: s;
-	padding-top: 0.5vw;
-	padding-left: 0.5vw;
-	background-color: rgba(180, 180, 180, 0.5);
-	border-radius: 2%;
-}
-
-#hobbies
-{
-	grid-area: c;
-	padding-top: 0.5vw;
-	padding-left: 0.5vw;
-	background-color: rgba(180, 180, 180, 0.5);
-	border-radius: 2%;
+	font-size: max(1vw, 1.5vh);
 }
 
 #contact
 {
-	grid-area: h;
-	padding-top: 0.5vw;
-	padding-left: 0.5vw;
+	grid-area: c;
+	padding: 0.5vw;
 	background-color: rgba(180, 180, 180, 0.5);
-	border-radius: 2%;
+	font-size: max(0.75vw, 1.2vh);
 }
 
 #title{
