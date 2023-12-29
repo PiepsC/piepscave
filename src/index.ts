@@ -342,7 +342,7 @@ function AddMenuHome()
     }
 }
 
-function AddSubHome(pages : string[])
+function AddSubHome(pages : string[], base : string)
 {
     pages = pages.sort()
     copyDiv.innerText = copyRight
@@ -351,13 +351,14 @@ function AddSubHome(pages : string[])
 
     for(let i=0; i < pages.length; i++)
     {
-        let button = <HTMLButtonElement>document.createElement("button")
-        button.id = "hoverButton"
+        let button = <HTMLButtonElement>document.createElement("button");
+        button.id = "hoverButton";
         button.disabled = false;
-        button.style.textAlign = "center"
-        optionDiv.appendChild(button)
-        button.textContent = `${pages[i]}`
-        menuButtons = menuButtons.concat(button)
+        button.style.textAlign = "center";
+        optionDiv.appendChild(button);
+        button.textContent = `${pages[i].replace(/_/g, " ")}`;
+        button.addEventListener('click', () => { window.location.href = `${base}/${pages[i]}`; });
+        menuButtons = menuButtons.concat(button);
     }
 }
 
@@ -430,7 +431,7 @@ let Reviews = MenuView(() =>
         m.request({
             method : "GET",
             url : "/content/reviews"
-        }).then(function(items){ AddSubHome(<string[]>items); SpawnIcon(<string>menuRoutes[animation - 1][1]);})
+        }).then(function(items){ AddSubHome(<string[]>items, "#!/review"); SpawnIcon(<string>menuRoutes[animation - 1][1]); })
     }
 )
 let Creative = MenuView(() =>
@@ -438,7 +439,7 @@ let Creative = MenuView(() =>
         m.request({
             method : "GET",
             url : "/content/creative"
-        }).then(function(items){ AddSubHome(<string[]>items); SpawnIcon(<string>menuRoutes[animation - 1][1]);})
+        }).then(function(items){ AddSubHome(<string[]>items, "#!/misc"); SpawnIcon(<string>menuRoutes[animation - 1][1]); })
     }
 )
 let About = MenuView(() =>
@@ -446,7 +447,7 @@ let About = MenuView(() =>
         m.request({
             method : "GET",
             url : "/content/about"
-        }).then(function(items){ AddSubHome(<string[]>items); SpawnIcon(<string>menuRoutes[animation - 1][1]);})
+        }).then(function(items){ AddSubHome(<string[]>items, "#!/info"); SpawnIcon(<string>menuRoutes[animation - 1][1]); })
     }
 )
 
@@ -517,10 +518,10 @@ m.route(start, gl ? "/home" : "/warning", {
         {
             animation = 1;
             animOffset = 1;
-            m.request({
-                method : "GET",
-                url : "/content/reviews"
-            }).then(function(items){ AddSubHome(<string[]>items); })
+            // m.request({
+            //     method : "GET",
+            //     url : "/content/reviews"
+            // }).then(function(items){ AddSubHome(<string[]>items); })
             return Reviews;
         }
     },

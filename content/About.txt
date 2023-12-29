@@ -1,3 +1,16 @@
 This file is more of a reminder to myself.
 
 In order for this to work each folder needs to have a Markdown file with the same name as the closest encapsulating directory. In this directory there must be a PNG called "t_{name}.png". There must also be a text file called "r_{name}.txt", which contains only a single integer in the range from 0 to 10.
+
+Rating names:
+0 - I don't review 0/10 games
+1 - horrendous
+2 - awful
+3 - bad
+4 - mediocre
+5 - average
+6 - decent
+7 - good
+8 - great
+9 - excellent
+10 - flawless
