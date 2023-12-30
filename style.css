@@ -51,11 +51,13 @@ body {
 	". . . . . . ."
 	". . . . . . ."
 	". . . . . . ."
+	". . . . . . ."
 	"b b b b b b b"
 	"b b b b b b b"
 	"c c c c c c c";
 	gap: 1vw;
 	background-color: rgba(180, 180, 180, 0);
+	overflow: scroll;
 }
 
 #abstract

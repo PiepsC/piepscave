@@ -65,7 +65,6 @@
 			if(u_time > 0.0 && thickness > 0.0 && distance > radius - thickness && distance <= radius + thickness)
 			{
 				float exp = 1.2;
-				//vec2 offset = (1.0 - pow((distance - radius) / (u_thickness * 2.0), exp)) * direction;
 				vec2 offset = pow((distance - radius) / (thickness * 2.0), exp) * direction;
 				pixel_color = texture2D(u_image, v_texCoord + offset / u_resolution);
 				pixel_color = vec4(1.0 - pixel_color.r, 1.0 - pixel_color.g, 1.0 - pixel_color.b, (thickness / (u_thickness * 2.0) ));

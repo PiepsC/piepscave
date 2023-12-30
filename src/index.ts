@@ -127,9 +127,7 @@ function postProcessing(time, ratio, center)
     gl.uniform1f(dissipateAttributeLocation, dissipateSpeed * ratio);
     gl.uniform1f(radiusAttributeLocation, baseRadius * ratio);
     gl.uniform1f(thicknessAttributeLocation, thickness * ratio);
-    // gl.uniform2f(centerAttributeLocation, center[0], center[1] + gl.canvas.height / 2 );
     gl.uniform2f(centerAttributeLocation, center[0], center[1] + gl.canvas.height / 2 - weirdOffset * ratio);
-    // gl.uniform2f(resolutionAttributeLocation, (<HTMLCanvasElement>gl.canvas).clientWidth, (<HTMLCanvasElement>gl.canvas).clientHeight);
     gl.uniform2f(resolutionAttributeLocation, gl.canvas.width, gl.canvas.height);
     
     gl.enableVertexAttribArray(pp_positionAttributeLocation);
@@ -150,7 +148,7 @@ function postProcessing(time, ratio, center)
     // This BINDS the buffer selected by bindBuffer permanently! Always call bindBuffer before this
     gl.vertexAttribPointer(pp_uvAttributeLocation, size, gl.FLOAT, normalize, stride, offset)
 
-    // Draw from the framebuffer
+    // Draw from the framebuffer into the quad
     gl.bindTexture(gl.TEXTURE_2D, postBuffer);
 
     // Render to the backbuffer
@@ -167,7 +165,6 @@ function drawScene(now)
     // Part for timers
     hTimer.tick(deltaTime);
     fTimer.tick(deltaTime);
-    // pTimer.tick(deltaTime);
     if(fTimer.flip && (animation < 4 || animation == 5) && document.hasFocus())
         rectangle.activateNext();
 
@@ -175,7 +172,6 @@ function drawScene(now)
     resizeRatio = gl.canvas.height / refHeight;
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    // rot += 0.01;
 
     // gl.enable(gl.CULL_FACE);
     gl.enable(gl.DEPTH_TEST);
@@ -267,8 +263,6 @@ function drawScene(now)
         matrix = m4.multiply(matrix, m4.yRotation(initialRot));
         matrix = m4.multiply(matrix, m4.scaling(mainBoxScale * resizeRatio, mainBoxScale * resizeRatio, mainBoxScale * resizeRatio))
     }
-
-
     gl.uniformMatrix4fv(matrixAttributeLocation, false, matrix);
     
     // Bind and set up the post processing buffer so we can write this to the backbuffer in postprocessing
@@ -292,7 +286,6 @@ function drawScene(now)
     gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.RENDERBUFFER, postDepthBuffer);
     gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, postBuffer, 0);
     gl.clear(gl.COLOR_BUFFER_BIT)
-    // gl.drawBuffers
 
     // Draw to the framebuffer
     gl.drawArrays(gl.TRIANGLES, 0, rectangle.getVertCount());
@@ -376,7 +369,6 @@ document.onmousemove = (e) =>
 }
 
 //#region Mithriljs
-
 function MenuView(Menucall : () => void) : any
 {
     return {
@@ -421,12 +413,27 @@ function BlogView(Menucall : () => any) : any
         view: function() {
             return m("div", {class : "foreground"},
             [
-                m("div", {id : "article"},
-                ),
+                m("div", {id : "article"}),
                 m("div", {id : "thumbnail"}, 
                 [
                     m("div", {id : "rating"})
                 ])
+            ])
+        }
+    }
+}
+
+function MiscView(Menucall : () => any) : any
+{
+    return {
+        oncreate : async function() {
+            blogDiv = document.getElementById("article")
+            await Menucall();
+        },
+        view: function() {
+            return m("div", {class : "foreground"},
+            [
+                m("div", {id : "article"})
             ])
         }
     }
@@ -555,6 +562,27 @@ let InfoPage = AboutView(
     }
 )
 
+let MiscPage = MiscView(
+    async () =>
+    {
+        let param = m.route.param("article");
+        let call = async () =>
+        {
+            return m.request({
+                method: "GET",
+                url: `/content/creative/${param}/${param}.md`,
+                extract: function(xhr) { return xhr.responseText },
+            })
+            .then(function(response) {
+                return parse(response)
+            })
+        }
+        let response = await call();
+        let article = response;
+        blogDiv.innerHTML = article;
+    }
+)
+
 let Warning = {
     view: function() {
 		return m("h1", {class : "warning"}, "Unfortunately your webrowser does not support webGL2...")
@@ -602,9 +630,19 @@ m.route(start, gl ? "/home" : "/warning", {
 	"/review/:article": {
         onmatch : function(args, requestedPath, route)
         {
+            pTimer.time = 0;
             animation = 4;
             animOffset = 0;
             return Review;
+        }
+    },
+	"/misc/:article": {
+        onmatch : function(args, requestedPath, route)
+        {
+            pTimer.time = 0;
+            animation = 4;
+            animOffset = 0;
+            return MiscPage;
         }
     },
 	"/info/:article": {
