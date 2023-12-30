@@ -1,5 +1,6 @@
 This file is more of a reminder to myself.
 
+For reviews:
 In order for this to work each folder needs to have a Markdown file with the same name as the closest encapsulating directory. In this directory there must be a PNG called "t_{name}.png". There must also be a text file called "r_{name}.txt", which contains only a single integer in the range from 0 to 10.
 
 Rating names:
@@ -14,3 +15,9 @@ Rating names:
 8 - great
 9 - excellent
 10 - flawless
+
+For creative:
+Creative is the simplest page. Only a markdown file with an identical name is required. These pages are used for e.g. artwork and other design related things.
+
+For about:
+Used for biography and publication abstract including the link. Requires a markdown file with the same name, and another markdown file named "i_{name}.md". The additional markdown file is used for additional information.

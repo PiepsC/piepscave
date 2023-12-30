@@ -21,7 +21,7 @@ body {
 	background-color: rgba(180, 180, 180, 0.96);
 	padding-left: 2%;
 	padding-right: 2%;
-	font-size: max(1vw, 1.8vh);
+	font-size: max(0.9vw, 1.8vh);
 	overflow: scroll;
 }
 
@@ -40,7 +40,7 @@ body {
 	box-shadow: 0.3vw 0.3vw;
 }
 
-#cv{
+#grid{
 	position: relative;
 	width: calc(100% - 4vw);
 	height: calc(100% - 4vw);
@@ -58,20 +58,22 @@ body {
 	background-color: rgba(180, 180, 180, 0);
 }
 
-#bio
+#abstract
 {
 	grid-area: b;
-	padding: 0.5vw;
+	padding-left: 1%;
+	padding-right: 1%;
 	background-color: rgba(180, 180, 180, 0.5);
-	font-size: max(1vw, 1.5vh);
+	font-size: max(0.9vw, 1.5vh);
 }
 
-#contact
+#info
 {
 	grid-area: c;
-	padding: 0.5vw;
+	padding-left: 1%;
+	padding-right: 1%;
 	background-color: rgba(180, 180, 180, 0.5);
-	font-size: max(0.75vw, 1.2vh);
+	font-size: max(0.8vw, 1.4vh);
 }
 
 #title{
@@ -191,7 +193,7 @@ body {
 	position: relative;
 	top: 15%;
 	width: 60%;
-	max-width: 40vh;
+	max-width: 42vh;
 	height: 75%;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -206,7 +208,7 @@ body {
 {
 	position: relative;
 	text-align: center;
-	font-size: max(2.8vh, 1.3vw);
+	font-size: max(2.1vh, 1.2vw);
 	margin-top: 1.2vh;
 	border-color: #969696;
 	border-style: none;
@@ -214,8 +216,6 @@ body {
 	background-color:#464646;
 	width: 80%;
 	height: calc(60px + max(3vh, 1.3vw));
-	/* box-shadow: 0px 0px 0px 5px #0ff; */
-	/* background-image: linear-gradient(90deg, rgba(255, 0, 0, 255), #464646); */
 	transition: color 0.4s, border-color 0.4s, background-color 0.4s, height 0.4s, font-size 0.4s;
 }
 
@@ -243,7 +243,7 @@ body {
 
 #hoverButton:hover:not(:disabled)
 {
-	font-size: max(2.8vh, 1.3vw);
+	font-size: max(2.1vh, 1.2vw);
 	background-color: #969696;
 	color : #464646;
 	transition: color 0.5s, border-color 0.5s, background-color 0.5s;

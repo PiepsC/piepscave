@@ -10,6 +10,7 @@ let resizeRatio = 1;
 // Constants
 const hoverHeight = 50;
 const boxOffset = 250;
+const infoBoxOffset = 70;
 const totalDepth = 10000;
 const initialRot = Math.PI / 4
 const maxMouseRot = Math.PI / 22
@@ -40,6 +41,8 @@ let bool1 = new ToggleBoolean(false), bool2 = new ToggleBoolean(false), bool3 = 
 let iconDiv, optionDiv, copyDiv;
 // For blog page
 let blogDiv, ratingDiv, thumbDiv;
+// For about page
+let abstractDiv, infoDiv;
 // For mouse tracking
 let mousex;
 
@@ -165,7 +168,7 @@ function drawScene(now)
     hTimer.tick(deltaTime);
     fTimer.tick(deltaTime);
     // pTimer.tick(deltaTime);
-    if(fTimer.flip && animation < 4 && document.hasFocus())
+    if(fTimer.flip && (animation < 4 || animation == 5) && document.hasFocus())
         rectangle.activateNext();
 
     resizeCanvasToDisplaySize(<HTMLCanvasElement>gl.canvas);
@@ -216,8 +219,6 @@ function drawScene(now)
     if(animation == 0)
     {
         matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
-        // matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
-
         matrix = m4.multiply(matrix, m4.xRotation(initialRot));
         matrix = m4.multiply(matrix, m4.yRotation(initialRot));
         matrix = m4.multiply(matrix, m4.yRotation(-maxMouseRot * (mousex - 0.5)));
@@ -258,6 +259,13 @@ function drawScene(now)
         matrix = m4.multiply(matrix, m4.yRotation(initialRot));
         matrix = m4.multiply(matrix, m4.yRotation(aTimer.time * SlowRotation));
         matrix = m4.multiply(matrix, m4.scaling(BlogResize * resizeRatio, BlogResize * resizeRatio, BlogResize * resizeRatio))
+    }
+    else if(animation == 5)
+    {
+        matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1] - infoBoxOffset * resizeRatio, 0));
+        matrix = m4.multiply(matrix, m4.xRotation(initialRot));
+        matrix = m4.multiply(matrix, m4.yRotation(initialRot));
+        matrix = m4.multiply(matrix, m4.scaling(mainBoxScale * resizeRatio, mainBoxScale * resizeRatio, mainBoxScale * resizeRatio))
     }
 
 
@@ -422,7 +430,27 @@ function BlogView(Menucall : () => any) : any
             ])
         }
     }
+}
 
+function AboutView(Menucall : () => any) : any
+{
+    return {
+        oncreate : async function() {
+            abstractDiv = document.getElementById("abstract")
+            infoDiv = document.getElementById("info")
+            await Menucall();
+        },
+        view: function() {
+            return m("div", {class : "foreground"},
+            [
+                m("div", {id : "grid"}, 
+                [
+                    m("div", {id : "abstract"}),
+                    m("div", {id : "info"})
+                ])
+            ])
+        }
+    }
 }
 
 let Home = MenuView(AddMenuHome)
@@ -493,6 +521,40 @@ let Review = BlogView(
     }
 )
 
+let InfoPage = AboutView(
+    async () =>
+    {
+        let param = m.route.param("article");
+        let call = async () =>
+        {
+            return m.request({
+                method: "GET",
+                url: `/content/about/${param}/${param}.md`,
+                extract: function(xhr) { return xhr.responseText },
+            })
+            .then(function(response) {
+                return [parse(response)]
+            }).then(async (chain) => 
+            {
+                let response = await m.request({
+                    method: "GET",
+                    url: `/content/about/${param}/i_${param}.md`,
+                    extract: function(xhr) { return xhr. responseText }
+                }).then(function(response) {
+                    return parse(response);
+                })
+                return chain.concat(response);
+            })
+        };
+
+        let response = await call();
+        let abstract = response[0];
+        let info = response[1];
+        abstractDiv.innerHTML = abstract;
+        infoDiv.innerHTML = info;
+    }
+)
+
 let Warning = {
     view: function() {
 		return m("h1", {class : "warning"}, "Unfortunately your webrowser does not support webGL2...")
@@ -518,10 +580,6 @@ m.route(start, gl ? "/home" : "/warning", {
         {
             animation = 1;
             animOffset = 1;
-            // m.request({
-            //     method : "GET",
-            //     url : "/content/reviews"
-            // }).then(function(items){ AddSubHome(<string[]>items); })
             return Reviews;
         }
     },
@@ -547,6 +605,18 @@ m.route(start, gl ? "/home" : "/warning", {
             animation = 4;
             animOffset = 0;
             return Review;
+        }
+    },
+	"/info/:article": {
+        onmatch : function(args, requestedPath, route)
+        {
+            bool1.reset()
+            bool2.reset()
+            bool3.reset()
+            pTimer.time = 0;
+            animation = 5;
+            animOffset = 0;
+            return InfoPage;
         }
     },
 	"/warning": {
