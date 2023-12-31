@@ -24,7 +24,7 @@ const dissipateSpeed = 7;
 const animBoundary = 150;
 const weirdOffset = 32;
 const BlogResize = 7.5;
-const SlowRotation = 0.01;
+const SlowRotation = 0.007;
 //Colors
 const lightGrey = "#969696" // Encoding of the background color in hex. This corresponds to (70,70,70)
 
