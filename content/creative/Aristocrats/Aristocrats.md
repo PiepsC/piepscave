@@ -5,7 +5,7 @@
 
 **Duration: 30 to 45 minutes**
 
-**Difficulty: easy**
+**Difficulty: easy/intermediate**
 
 **Requires: a note to keep track of the score, a full deck of 52 cards including 1 Joker and a bunch of friends you wouldn't mind losing**
 
@@ -21,7 +21,7 @@ Aristocrats is a party game that can be played with a regular deck of cards. It 
 
 ## Rationale
 
-The game was designed around a classical card deck while providing a snappy experience with *higher player interactivity*. After all: the most fun to be had with good company is to be able to bully them into submission right (right...?)? Most rounds will not last long and do not require prior experience to properly partake in. Games will usually close out quite rapidly after one or two players lock in their cards as the remainder of the players will be tossed into the classical *prisoners' dilemma* ("do we keep playing or will the opponent lock in, ruining my hand?"). Luck plays a significant role in obtaining the most desirable hand, but unusual outliers will usually flatten out over the comparatively high frequency of rounds. Even though I would recommend playing around with the game's rules to fit your company's needs, I do as such advise to not cut the amount rounds too short (lest you want someone to win through sheer luck).
+The game was designed around a classical card deck while providing a snappy experience with *high player interactivity*. After all: the most fun to be had with good company is to be able to bully them into submission right (right...?)? Most rounds will not last long and do not require prior experience to properly partake in. Games will usually close out quite rapidly after one or two players lock in their cards as the remainder of the players will be tossed into the classical *prisoners' dilemma* ("do we keep playing or will the opponent lock in, ruining my hand?"). Luck plays a significant role in obtaining the most desirable hand, but unusual outliers will usually flatten out over the comparatively high frequency of rounds. Even though I would recommend playing around with the game's rules to fit your company's needs, I do as such advise to not cut the amount rounds too short (lest you want someone to win through sheer luck).
 
 ## The goal
 
@@ -31,13 +31,13 @@ The goal in Aristocrats is to complete a sequence of an identical suit. Similar 
 | :--: |
 | A hand depicting a four sequence |
 
-Since the Ace always functions like a Joker it will assume the *Jack of Hearts*. Thus, this hand is worth a total of 8 + 9 + 10 + 11 - 4 points. Totaling at a score of 34. The highest score a player could possibly obtain is 13 + 12 + 11 + 10 + 9, or 55 in total. This sequence can be completed in 21 ways when considering Aces.
+Since the Ace always functions like a Joker it will assume the *Jack of Hearts*. Thus, this hand is worth a total of 8 + 9 + 10 + 11 - 4 points. Totaling at a score of 34. The highest score a player could possibly obtain is 13 + 12 + 11 + 10 + 9, or 55 in total. This sequence can be completed in 21 ways when considering Aces. The objective across all rounds is to accumulate as many points as possible. The player managing to achieve the highest score at the end of the game wins.
 
 ## Playing Aristocrats
 
 Each player is dealt 5 cards at random which they keep secret from everyone else. The remainder of the deck is placed at the center of the board face-down. The top card of this deck is flipped face-up and placed on top of the stack. This card is available to everyone during their turn and will be **discarded** upon surviving a full round (i.e. a person gets access to it *for a second time* during their turn). Discarded cards are removed from the current round entirely. The **oldest player** in the company starts the game.
 
-The starting player may either *donate* a card to any other player or *take* the currently unveiled card. When taking the card from the deck this player must discard any one card from their hand, **including the option of discarding the card they just collected**. It is not revealed to other players what card is discarded. After having done so this player takes the top card from the deck and flips it upside down, placing it back on top of the deck. This constitutes their *first action*. The first action may be forfeit if the player so wishes. For their *second action* they may either: forfeit this action (i.e. continue playing), *lock in* their cards or *steal ALL CARDS from another player, replacing theirs with yours*. In case of the latter two options the player places their cards face-down in front of them. Exchanged cards after a swap must be transferred face-down. They can no longer partake in this round and can no longer receive gifts. For additional comical effect there is the optional rule of disallowing the player initiating a transfer to look at the cards they received.
+The starting player may either *donate* a card to any other player or *take* the currently unveiled card. When taking the card from the deck this player must discard any one card from their hand, **including the option of discarding the card they just collected**. It is not revealed to other players what card is discarded. After having done so this player takes the top card from the deck and flips it upside down, placing it back on top of the deck. This constitutes their *first action*. The first action may be forfeit if the player so wishes. For their *second action* they may either: forfeit this action (i.e. continue playing), *lock in* their cards or *steal ALL CARDS from another player, replacing theirs with yours*. In case of the latter two options the player places their cards face-down in front of them. Exchanged cards after a swap must be transferred face-down. They can no longer partake in this round and can no longer receive gifts. For additional comical effect there is the optional rule of disallowing the player initiating a transfer to look at the cards they received. **Players may not forfeit *both* actions during their turn** (i.e. do nothing).
 
 | ![Aristocrats2](content\creative\Aristocrats\kindofanass.jpg) |
 | :--: |

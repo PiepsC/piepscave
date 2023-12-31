@@ -123,8 +123,6 @@ class Composite
 	{
 		this._verts = this._verts.concat(this.one._verts);
 		this._verts = this._verts.concat(this.two._verts);
-		// this._colors = this._colors.concat(this.one.colors);
-		// this._colors = this._colors.concat(this.two.colors);
 		this._vertCount = this.one._vertCount + this.two._vertCount;
 	}
 

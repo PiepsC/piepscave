@@ -261,7 +261,6 @@ export function setRectangleUV(gl)
     ]), gl.STATIC_DRAW);
 }
 
-
 // Test functions for creating a 3d F figure with various face colors
 // Fill the buffer with the values that define a letter 'F'.
 export function setGeometry(gl) {

@@ -103,7 +103,6 @@ gl.bufferData(gl.ARRAY_BUFFER, new Uint8Array(rectangle.getColors()), gl.STATIC_
 
 let postBuffer = gl.createTexture();
 let postDepthBuffer = gl.createRenderbuffer();
-// let postBuffer = gl.createTexture(gl.TEXTURE_3D);
 let frameBuffer = gl.createFramebuffer();
 
 // let rot = 0, then = 0, animation = 0;
