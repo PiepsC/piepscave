@@ -13,7 +13,7 @@ Designed by Lars Willemsen in 2020
 
 ## Introduction
 
-Aristocrats is a party game that can be played with a regular deck of cards. It was originally designed around 3 players, but can easily be played with up to 5 people. The game is called "Aristocrats" after the typical thinly veiled egotistical and decadent attitude of the Victorian high society members as depicted in books by Oscar Wilde. In Aristocrats people will be interacting with one another by pretending to be courteous, while in reality just trying to advance their own goals. The game is played in different *rounds*, which usually resolve fairly quickly. In order to play one would need to keep track of each player's individual score, similar to other common card games like Hearts. The person ending with the highest score wins!
+Aristocrats is a party game that can be played with a regular deck of cards. It was originally designed around 3 players, but can easily be played with up to 5 people. The game is called "Aristocrats" after the typical thinly veiled egotistical and decadent attitude of the Victorian high society members as depicted in novels by Oscar Wilde. In Aristocrats people will be interacting with one another by pretending to be courteous, while in reality just trying to advance their own goals. The game is played in different *rounds*, which usually resolve fairly quickly. In order to play one would need to keep track of each player's individual score, similar to other common card games like Hearts. The person ending with the highest score wins!
 
 | ![Aristocrats](content\creative\Aristocrats\Aristocrats.jpg) |
 | :--: |
