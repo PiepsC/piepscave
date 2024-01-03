@@ -167,12 +167,13 @@ function drawScene(now)
     if(fTimer.flip && (animation < 4 || animation == 5) && document.hasFocus())
         rectangle.activateNext();
 
+    // TODO: This is NOT working
     resizeCanvasToDisplaySize(<HTMLCanvasElement>gl.canvas);
     resizeRatio = gl.canvas.height / refHeight;
+    // resizeRatio = window.innerHeight / refHeight;
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-    // gl.enable(gl.CULL_FACE);
     gl.enable(gl.DEPTH_TEST);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
@@ -200,8 +201,8 @@ function drawScene(now)
     // This BINDS the buffer selected by bindBuffer permanently! Always call bindBuffer before this
     gl.vertexAttribPointer(colorAttributeLocation, size, gl.UNSIGNED_BYTE, normalize, stride, offset);
 
-    let matrix = m4.orthographic((<HTMLCanvasElement>gl.canvas).clientWidth, (<HTMLCanvasElement>gl.canvas).clientHeight, totalDepth / 2, -totalDepth / 2);
-    let boxStart = [gl.canvas.width / 2, gl.canvas.height / 2 - boxOffset * resizeRatio]
+    let matrix = m4.orthographic(gl.canvas.width, gl.canvas.height, totalDepth / 2, -totalDepth / 2);
+    let boxStart = [(<HTMLElement>gl.canvas).clientWidth / 2, gl.canvas.height / 2 - boxOffset * resizeRatio]
     let newBoxSize = boxSize * resizeRatio;
 
     if(iconDiv)
@@ -217,7 +218,7 @@ function drawScene(now)
         matrix = m4.multiply(matrix, m4.xRotation(initialRot));
         matrix = m4.multiply(matrix, m4.yRotation(initialRot));
         matrix = m4.multiply(matrix, m4.yRotation(-maxMouseRot * (mousex - 0.5)));
-        matrix = m4.multiply(matrix, m4.translation(0, -easing(hTimer.time) * hoverHeight * resizeRatio, resizeRatio));
+        matrix = m4.multiply(matrix, m4.translation(resizeRatio, -easing(hTimer.time) * hoverHeight * resizeRatio, 0));
         matrix = m4.multiply(matrix, m4.scaling(mainBoxScale * resizeRatio, mainBoxScale * resizeRatio, mainBoxScale * resizeRatio))
     }
     else if(animation == 1)
@@ -225,7 +226,7 @@ function drawScene(now)
         matrix = m4.multiply(matrix, m4.translation(boxStart[0], boxStart[1], 0));
         matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
         aTimer.tick(deltaTime);
-        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [-initialRot, 0], [0, -initialRot], pTimer, deltaTime, bool1, () => {  if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]};} );
+        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio / window.devicePixelRatio, fullBoxDiff, [-initialRot, 0], [0, -initialRot], pTimer, deltaTime, bool1, () => {  if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]};} );
         matrix = m4.multiply(matrix, anim.interpolate(easing(Math.min(aTimer.time + animOffset, 1))));
     }
     else if(animation == 2)
@@ -234,7 +235,7 @@ function drawScene(now)
         matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
         
         aTimer.tick(deltaTime);
-        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [0, initialRot], [-initialRot, 0], pTimer, deltaTime, bool2, () => { if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
+        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio / window.devicePixelRatio, fullBoxDiff, [0, initialRot], [-initialRot, 0], pTimer, deltaTime, bool2, () => { if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
         matrix = m4.multiply(matrix, anim.interpolate(easing(Math.min(aTimer.time + animOffset, 1))));
     }
     else if(animation == 3)
@@ -243,7 +244,7 @@ function drawScene(now)
         matrix = m4.multiply(matrix, m4.scaling(resizeRatio, resizeRatio, resizeRatio));
 
         aTimer.tick(deltaTime);
-        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio, fullBoxDiff, [initialRot, 0], [0, initialRot], pTimer, deltaTime, bool3, () => { if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
+        let anim = new CubeAnimation(boxStart, [initialRot, initialRot], mainBoxScale, animBoundary * resizeRatio / window.devicePixelRatio, fullBoxDiff, [initialRot, 0], [0, initialRot], pTimer, deltaTime, bool3, () => { if(window.location.hash != menuRoutes[animation - 1][3]) {window.location.href = <string>menuRoutes[animation - 1][3]}} );
         matrix = m4.multiply(matrix, anim.interpolate(easing(Math.min(aTimer.time + animOffset, 1))));
     }
     else if(animation == 4)
@@ -267,7 +268,7 @@ function drawScene(now)
     // Bind and set up the post processing buffer so we can write this to the backbuffer in postprocessing
     // This needs to happen frequently because the canvas size might change
     gl.bindBuffer(gl.ARRAY_BUFFER, pp_positionBuffer);
-    setRectangleVert(gl, 0, 0, (<HTMLCanvasElement>gl.canvas).clientWidth, (<HTMLCanvasElement>gl.canvas).clientHeight);
+    setRectangleVert(gl, 0, 0, gl.canvas.width, gl.canvas.height);
 
     gl.bindTexture(gl.TEXTURE_2D, postBuffer);
     // Hard to find much info on these, apparently this scales the texture to whatever size
