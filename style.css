@@ -15,14 +15,14 @@ body {
 
 #article{
 	position: absolute;
-	width: min(calc(90% + calc(6vh - 1vw)), 98%);
+	width: min(calc(90% + calc(6vh - 1.5vw)), 98%);
 	height: 100%;
 	max-width: 100%;
 	background-color: rgba(180, 180, 180, 0.95);
 	padding-left: 2%;
 	padding-right: 2%;
 	font-size: max(0.9vw, 1.8vh);
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 #article > table
@@ -58,7 +58,8 @@ body {
 	"c c c c c c c";
 	gap: 1vw;
 	background-color: rgba(180, 180, 180, 0);
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #abstract

@@ -9,7 +9,7 @@ Brink was released in May 2011 after a long, carefully executed marketing campai
 
 Looking back on Brink in 2023 makes it a fascinating trainwreck of poor planning, inconsistent execution and overhyping to caricatural degrees. But not all is bad: even though extraordinarily flawed Brink does stand as a unique, rather daring product that falls in-line with Splash Damage's previous and subsequent works. Brink can, as of writing this article, [still be obtained on Steam](https://store.steampowered.com/app/22350/BRINK/), entirely for free. It is only playable locally or through peer to peer.
 
-| ![Brink](content\reviews\Brink\cutscene.jpg) |
+| ![Brink](content/reviews/Brink/cutscene.jpg) |
 | :--: |
 | Brink: a story of two extremes united in mediocrity |
 
@@ -41,7 +41,7 @@ Lastly there is another promotional spearhead that the game failed to deliver on
 
 I like to imagine Brink was carried through the approval process by its distinct, bold and expressive visuals. The presentation is by far the game's strongest point, offering unique gritty character design, clean menus, a decent UX, pleasant albeit slightly bland music and decent if not a little inconsistent sound effect design. The cosmetic system is also very fun and quite elaborate, allowing for many different permutations of clothing for both individual factions. The main menu is inviting and would lead you to believe you're actually playing a much better game than Brink.
 
-| ![Brink2](content\reviews\Brink\cosmetics.jpg) |
+| ![Brink2](content/reviews/Brink/cosmetics.jpg) |
 | :--: |
 | Brink offers a cool, expressive cosmetic system |
 
@@ -50,7 +50,7 @@ The overall visual design of the game is coherent and unusual in appearance, bei
 The map design is mostly rather bland but decent looking, or bland and awful looking - depending on whether you are playing an Ark based mission or one in the slums. In case of the first you will be met with mostly pristine, white backdrops and textures juxtaposed with vibrant bright colors. Usually conveying something like a public environ. In case of the latter you will be playing in an ugly trash heap with some of the worst color palettes I can recall in any game. In trying to convey oxidation the whole map has a muddy, unpleasant feces-like brown color giving little depth to the geometry.
 
 
-| ![Brink3](content\reviews\Brink\ark.jpg) |
+| ![Brink3](content/reviews/Brink/ark.jpg) |
 | :--: |
 | The Ark based levels have a pleasant, somewhat boring look |
 

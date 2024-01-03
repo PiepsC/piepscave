@@ -464,7 +464,7 @@ let Reviews = MenuView(() =>
     {
         m.request({
             method : "GET",
-            url : "/content/reviews"
+            url : "/content/reviews/"
         }).then(function(items){ AddSubHome(<string[]>items, "#!/review"); SpawnIcon(<string>menuRoutes[animation - 1][1]); })
     }
 )
@@ -472,7 +472,7 @@ let Creative = MenuView(() =>
     {
         m.request({
             method : "GET",
-            url : "/content/creative"
+            url : "/content/creative/",
         }).then(function(items){ AddSubHome(<string[]>items, "#!/misc"); SpawnIcon(<string>menuRoutes[animation - 1][1]); })
     }
 )
@@ -480,7 +480,7 @@ let About = MenuView(() =>
     {
         m.request({
             method : "GET",
-            url : "/content/about"
+            url : "/content/about/"
         }).then(function(items){ AddSubHome(<string[]>items, "#!/info"); SpawnIcon(<string>menuRoutes[animation - 1][1]); })
     }
 )

@@ -11,7 +11,7 @@ The Ascent was released in 2021 for both Windows and Xbox after an [exclusivity 
 
 Being in development at the same time, The Ascent shares a lot of aesthetic similarities with Cyberpunk 2077, released a few months prior. The Ascent takes place in an more advanced, higher sci-fi and even cruder dystopian hellscape passing for a future. You are put in the shoes of a lowly thug, trying to navigate a world dominated by corporate overlords.
 
-| ![Ascent](content\reviews\The_Ascent\menu.jpg) |
+| ![Ascent](content/reviews/The_Ascent/menu.jpg) |
 | :--: |
 | A bleak dystopian world awaits you in the Ascent |
 
@@ -24,7 +24,7 @@ Visually The Ascent is a delight, assuming you don't get exposed to the models o
 
 Sound-design wise the game is equally impressive, sporting unsurprising but serviceable music and excellent sound effects. Weapons sound positively brutal and offer as much oomph as you could reasonable expect from a top-down game. Combined with the pretty particle effects the game manages to achieve that coveted "visceral" feel with ease.
 
-| ![Ascent2](content\reviews\The_Ascent\pretty.jpg) |
+| ![Ascent2](content/reviews/The_Ascent/pretty.jpg) |
 | :--: |
 | Many unique assets and visual coherency make The Ascent eye-candy |
 
@@ -40,11 +40,11 @@ Being a Twin-Stick shooter and ARPG the game suffers the classic problem of not 
 Initially the game communicates itself quite well visually and I found myself only very rarely conflicted about what targets to attack or areas to avoid. There is a bit of deliberate ambiguity involved surrounding civilians, which you might shoot by accident confusing them for enemies in the heat of the moment (don't worry, this is not punished outside an occasional quip). The minimap implementation is solid and I found myself using it consistently throughout my playtime. The color coding is okay-ish, even though enemies sometimes fall away against the backdrop a bit more than I would like. Unfortunately, like most things in The Ascent, this starts to deteriorate very quickly as playtime progresses. Especially in the later stages of the game the screen becomes increasingly hard to read with an abundance of particles flying around.
 
 ## The bad
-I had to consider what score to assign The Ascent for quite a while, but in the end I found myself counting too many flaws to give it any higher than a 7 in spite of the clear amount of effort, expertise and passion that went into making it. Considering how much the game descents into being a generic, rather trashy ARPG in the later stages that still feels rather generous.
+I had to consider what score to assign The Ascent for quite a while, but in the end I found myself counting too many flaws to give it any higher than a 7 in spite of the clear amount of effort, expertise and passion that went into making it. Considering how much the game descents into being a generic, rather trashy ARPG in the later stages that feels more than fair.
 
 Being an ARPG The Ascent falls victim to many of the genre's common flaws. The player can freely walk into territories populated by *overleveled* enemies, killing the player instantly. Conversely the game implements damage scaling in such a way the player is not entirely incapable of taking these enemies on, which leads to another problem: the player unintentionally *overleveling themselves*. But arguably even more comically these enemies may drop pieces of equipment that are ridiculously overpowered considering the player's current level. This effectively turns them into nigh invincible juggernauts not having to care in the slightest about getting shot by weaker enemies. At this point the challenge pretty much evaporates. This effectively ruined three subsequent main missions for me despite already playing on the hardest difficulty. More tangentially this also invalidates a lot of loot the player might receive during missions.
 
-As mentioned in the "good" section I very much enjoy the cover system, but again the game does way too little to incentivize actually using it. Just developing an understanding of how to *build* your character can carry you through even the toughest sections of the game with ease. In my eyes holding the left mouse button while mowing down enemies in an orgy of particles hardly constitutes gameplay or a challenge, and as such this is a definite negative for me.
+As mentioned in the "good" section I very much enjoy the cover system, but again the game does way too little to incentivize actually using it. Just developing an understanding of how to *build* your character can carry you through even the toughest sections of the game with ease. In my eyes holding the left mouse button while mowing down enemies in an orgy of particles hardly constitutes gameplay or a challenge, and as such this is a definite negative for me. This problem starts to become more prominent as the game progresses - eventually decaying in the typical whirlwind of particles we've come to expect from the genre.
 
 The build system itself mostly consists of giving the player the option to invest in a certain facet of the game, rather than locking them out of certain mechanics entirely. I have seen this applied before, but it does not solve the problem as neatly as some designers seem to think it does; even with comparatively gradual steps these upgrades will amount to the player effectively primarily using a specific set of tools. This hurts the expressiveness of the game in the long run and almost innately guarantees the experience is going to be inconsistent across different players. It is a compromise between between consistency and offering the players the macro/role playing aspect of varying builds but does not excel at either.
 
@@ -52,13 +52,13 @@ I simply can't agree with some of the game's implementations. Many weapons and e
 
 Outside of health there is a bar dedicated to a "mana-like" resource used for augments (really just abilities on a cooldown). This resources generates over-time rather than by inflicting damage, or some item that is dropped at random. This is a classic design mistake in my eyes, as it *rewards* the player for waiting around. Instead of engaging the next cluster of enemies they might actually increase their chances of winning by idling and letting this meter fill back up. An odd choice, considering the other tactical tool *does* regenerate by engaging.
 
-| ![Ascent3](content\reviews\The_Ascent\mindless.jpg) |
+| ![Ascent3](content/reviews/The_Ascent/mindless.jpg) |
 | :--: |
 | Despite its strong fundamentals the Ascent feels mindless far too often |
 
 Lastly but certainly not least there is the concern of the bugs and performance issues. I personally did not suffer *any* performance or stability issues, which might lead to this game being rated far too favorably here for some people. I did however experience a few bugs such as questlines pointing me to the wrong location or the map, or needing to restart the game to trigger a cutscene that refused to play. Overall I encountered only comparatively minor problems in this regard.
 
 ## Conclusion
-The Ascent is a very pretty, mature ARPG Twin-Stick shooter set in a thematically over-exploited setting. Even though it starts off strong, the game does fall victim to becoming mindless, hard to read and dull as it progresses. The world is vaguely elaborate yet doesn't feel original enough for me to be enthralled with. Excellent sound design, beautiful visuals and strong fundamentals make The Ascent a title well worth playing, especially if you are a fan of ARPGs. That is, as long as you can take in stride the boring loot system, sub par UX and lack of build variety.
+The Ascent is a very pretty, mature ARPG Twin-Stick shooter set in a thematically over-exploited setting. Even though it starts off strong, the game does fall victim to becoming mindless, hard to read and exceedingly dull as it progresses. The world is vaguely elaborate yet doesn't feel original enough for me to be enthralled with. Excellent sound design, beautiful visuals and strong fundamentals make The Ascent a title worth playing, but only if you are a fan of ARPGs. That is, as long as you can take in stride the boring loot system, sub par UX and lack of build variety.
 
 **Verdict: 7/10 - "good"**

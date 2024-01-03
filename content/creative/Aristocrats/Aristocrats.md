@@ -15,7 +15,7 @@ Designed by Lars Willemsen in 2020
 
 Aristocrats is a party game that can be played with a regular deck of cards. It was originally designed around 3 players, but can easily be played with up to 5 people. The game is called "Aristocrats" after the typical thinly veiled egotistical and decadent attitude of the Victorian high society members as depicted in novels by Oscar Wilde. In Aristocrats people will be interacting with one another by pretending to be courteous, while in reality just trying to advance their own goals. The game is played in different *rounds*, which usually resolve fairly quickly. In order to play one would need to keep track of each player's individual score, similar to other common card games like Hearts. The person ending with the highest score wins!
 
-| ![Aristocrats](content\creative\Aristocrats\Aristocrats.jpg) |
+| ![Aristocrats](content/creative/Aristocrats/Aristocrats.jpg) |
 | :--: |
 | Aristocrats : a party oriented card game for up to 5 players! |
 
@@ -27,7 +27,7 @@ The game was designed around a classical card deck while providing a snappy expe
 
 The goal in Aristocrats is to complete a sequence of an identical suit. Similar to e.g. a *flush* in Poker. Any cards that remain in the player's hand that does not contribute to the sequence will be counted as a **negative contribution**. Cards are scored according to a simple ascending metric: the Jack represents 11 points, the Queen 12 and the King 13 - all others cards are scored according to their value. The Ace functions as both a Joker when scoring and *the highest card* when it comes to trading (this will be explained later). When completing a sequence **an Ace of any color** can be used to substitute **any** missing card. In this case the Ace will assume the score of the card it is substituting. The Ace *does not count as 14 points* in the regular ascending scoring! An example is provided below with someone having managed to obtain a sequence of length four, but one disconnected card.
 
-| ![Aristocrats2](content\creative\Aristocrats\Example_hand.jpg) |
+| ![Aristocrats2](content/creative/Aristocrats/Example_hand.jpg) |
 | :--: |
 | A hand depicting a four sequence |
 
@@ -39,7 +39,7 @@ Each player is dealt 5 cards at random which they keep secret from everyone else
 
 The starting player may either *donate* a card to any other player or *take* the currently unveiled card. When taking the card from the deck this player must discard any one card from their hand, **including the option of discarding the card they just collected**. It is not revealed to other players what card is discarded. After having done so this player takes the top card from the deck and flips it upside down, placing it back on top of the deck. This constitutes their *first action*. The first action may be forfeit if the player so wishes. For their *second action* they may either: forfeit this action (i.e. continue playing), *lock in* their cards or *steal ALL CARDS from another player, replacing theirs with yours*. In case of the latter two options the player places their cards face-down in front of them. Exchanged cards after a swap must be transferred face-down. They can no longer partake in this round and can no longer receive gifts. For additional comical effect there is the optional rule of disallowing the player initiating a transfer to look at the cards they received. **Players may not forfeit *both* actions during their turn** (i.e. do nothing).
 
-| ![Aristocrats2](content\creative\Aristocrats\kindofanass.jpg) |
+| ![Aristocrats2](content/creative/Aristocrats/kindofanass.jpg) |
 | :--: |
 | Play like a true gentleman! |
 
