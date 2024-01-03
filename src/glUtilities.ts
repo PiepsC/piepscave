@@ -36,19 +36,19 @@ export function resizeCanvasToDisplaySize(canvas : HTMLCanvasElement) : boolean
 	// const dpr = window.devicePixelRatio;
 	// Lookup the size the browser is displaying the canvas in CSS pixels.
 	const {width, height} = canvas.getBoundingClientRect();
-	const displayWidth  = Math.round(width);
 	// const displayWidth  = Math.round(width);
-	const displayHeight = Math.round(height);
+	// const displayWidth  = Math.round(width);
+	// const displayHeight = Math.round(height);
 	// const displayHeight = Math.round(height);
 	
 	// Check if the canvas is not the same size.
-	const needResize = canvas.width  !== displayWidth ||
-					   canvas.height !== displayHeight;
+	const needResize = canvas.width  !== width ||
+					   canvas.height !== height;
 	
 	if (needResize) {
 		// Make the canvas the same size
-		canvas.width  = displayWidth;
-		canvas.height = displayHeight;
+		canvas.width  = width;
+		canvas.height = height;
 	}
 	
 	return needResize;
