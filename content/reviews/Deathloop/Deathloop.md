@@ -65,6 +65,6 @@ In the rare occasion multiplayer does work it is a complete and utter mess, exac
 ## Conclusion
 Deathloop is an anomaly and one of the most poorly designed triple A games I have ever seen. Looking back at it now it perfectly set the stage for Arkane's next homerun: [RedFall](https://store.steampowered.com/app/1294810/Redfall/).
 
-Spawned by what appears to be pure misguided arrogance Deathloop recognizes the runaway success they experienced with the Dishonored, but completely failed to capture its essence. Despite being visually pleasant, sporting good voice acting (albeit with awful Marvel-like dialogue), a creative story and vaguely mimicking some of the previous games' charm it is utterly overshadowed by its utterly broken premise.
+Spawned by what appears to be pure misguided arrogance Deathloop recognizes the runaway success they experienced with the Dishonored, but completely failed to capture its essence. Despite being visually pleasant, sporting good voice acting (albeit with awful Marvel-like dialogue), a creative story and vaguely mimicking some of the previous games' charm it is completely overshadowed by its utterly broken premise.
 
 **Verdict: 3/10 - "bad"**

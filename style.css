@@ -22,7 +22,7 @@ body {
 	padding-left: 2%;
 	padding-right: 2%;
 	font-size: max(0.9vw, 1.8vh);
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 #article > table
@@ -58,7 +58,7 @@ body {
 	"c c c c c c c";
 	gap: 1vw;
 	background-color: rgba(180, 180, 180, 0);
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
 }
 
@@ -155,9 +155,8 @@ body {
 	background-color:#464646;
 	width: 100%;
 	height: 100%;
-	/* padding: 0;
-	border: 0;
-	margin: 0; */
+	padding: 0;
+	margin: 0;
 	overflow: hidden;
 }
 
@@ -200,7 +199,7 @@ body {
 	max-width: 42vh;
 	height: 75%;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
