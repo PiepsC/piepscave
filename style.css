@@ -67,7 +67,7 @@ body {
 	grid-area: b;
 	padding-left: 1%;
 	padding-right: 1%;
-	background-color: rgba(180, 180, 180, 0.6);
+	background-color: rgba(180, 180, 180, 0.7);
 	font-size: max(0.9vw, 1.5vh);
 }
 
@@ -76,7 +76,7 @@ body {
 	grid-area: c;
 	padding-left: 1%;
 	padding-right: 1%;
-	background-color: rgba(180, 180, 180, 0.6);
+	background-color: rgba(180, 180, 180, 0.7);
 	font-size: max(0.8vw, 1.4vh);
 }
 
