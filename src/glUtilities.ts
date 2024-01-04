@@ -33,14 +33,9 @@ export function createProgram(gl : WebGL2RenderingContext, vertexShader : WebGLS
 
 export function resizeCanvasToDisplaySize(canvas : HTMLCanvasElement) : boolean
 {
-	// const dpr = window.devicePixelRatio;
 	// Lookup the size the browser is displaying the canvas in CSS pixels.
 	const {width, height} = canvas.getBoundingClientRect();
-	// const displayWidth  = Math.round(width);
-	// const displayWidth  = Math.round(width);
-	// const displayHeight = Math.round(height);
-	// const displayHeight = Math.round(height);
-	
+  
 	// Check if the canvas is not the same size.
 	const needResize = canvas.width  !== width ||
 					   canvas.height !== height;
