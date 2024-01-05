@@ -1,6 +1,6 @@
 # Contact information
 
-**Note:** if you feel inclined to contact me, please use the appropriate medium! If you need to contact me with regard to any of the courses I teach or taught in the past, do so through my *university mail* or approach the student assistants first. I do not like to be called directly unless it is urgent. In case of work related questions contact the secretary.
+**Note:** if you feel inclined to contact me, please use the appropriate medium! If you need to contact me with regard to any of the courses I teach or taught in the past, do so through my *university mail* or approach the student assistants first. I do not like to be called directly unless it is urgent. I am quite active on matrix and frequently read my e-mail. In case of work related questions contact the department secretary.
 
 **Department:** Design Automation of Embedded Systems
 
@@ -12,6 +12,6 @@
 
 **Work related email:** -
 
-**Personal email:** laarz@live.nl
+**Personal email:** larswillemsen@piepscave.com
 
 **Matrix tag:** piepsc:matrix.org
