@@ -9,7 +9,7 @@ Deathloop was a highly anticipated game released by the renowned Arkane studios,
 
 | ![Deathloop](content/reviews/Deathloop/dinga.jpg) |
 | :--: |
-| Dinga Bakaba appearing in one of various promotional talks and interviews |
+| *Dinga Bakaba appearing in one of various promotional talks and interviews* |
 
 ## The premise
 Deathloop is a very bold game in terms of its design. In retrospect probably *a little* arrogant and shortsighted too. In various interviews with Dinga the idea is propagated Deathloop would be a more *focused* experience than previous Dishonored titles. In [this interview](https://www.youtube.com/watch?v=3ra-jkrurR4) by Noclip he explains that he and other designers found fault with the way the Dishonored games were being played; rather than just mucking about and proceeding at their own pace players would fall victim to self-doubt: "do I approach this situation as intended?"/"is this what the game was designed around?". Deathloop was specifically designed to allow people to explore all angles, then optimize it upon repetition. It is also stated several times it was one of the most aggressively re-designed games Arkane has ever produced (i.e. changing direction mid development).
@@ -27,7 +27,7 @@ But Dishonored was never *explicitly designed* to be played this way, as admitte
 
 | ![Deathloop2](content/reviews/Deathloop/stealthgamer.jpg) |
 | :--: |
-| [StealthGamerBR's gameplay](https://www.youtube.com/watch?v=vKyT19o-Nl8) encapsulates the near limitless freedom Dishonored offers |
+| *[StealthGamerBR's gameplay](https://www.youtube.com/watch?v=vKyT19o-Nl8) encapsulates the near limitless freedom Dishonored offers* |
 
 So given the opportunity to learn from previously successful titles, why did Deathloop fail so badly from both a financial and design standpoint?
 
@@ -42,7 +42,7 @@ So instead of running with the wild successes of previous games Arkane somehow m
 
 | ![Deathloop3](content/reviews/Deathloop/nochallenge.jpg) |
 | :--: |
-| Deathloop offers no challenge on the first run, but would it on the 10th? |
+| *Deathloop offers no challenge on the first run, but would it on the 10th?* |
 
 ## Clue for the mentally impaired
 As I mentioned in an earlier section the designers explicitly opted to hold the hand of the player throughout the game. After all, connecting the dots themselves would surely *cognitively overload* them. To achieve this all clues, notes and connections are captured in a menu. Opening and closing this menu will also constitute approximately half of your playtime. You pick up the 20th note you can't be bothered to read and if, by sheer luck, it contains vital information it will appear in your all-encompassing miracle-menu. If it is a safe- or keypad code fret not, the protagonist will tell you the answer when you are within reach. How is that for accessibility? Deathloop is the first game designed to take away the nuisance of having to actually play it.

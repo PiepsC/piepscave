@@ -17,7 +17,7 @@ Aristocrats is a party game that can be played with a regular deck of cards. It 
 
 | ![Aristocrats](content/creative/Aristocrats/Aristocrats.jpg) |
 | :--: |
-| Aristocrats : a party oriented card game for up to 5 players! |
+| *Aristocrats : a party oriented card game for up to 5 players!* |
 
 ## Rationale
 
@@ -29,7 +29,7 @@ The goal in Aristocrats is to complete a sequence of an identical suit. Similar 
 
 | ![Aristocrats2](content/creative/Aristocrats/Example_hand.jpg) |
 | :--: |
-| A hand depicting a four sequence |
+| *A hand depicting a four sequence* |
 
 Since the Ace always functions like a Joker it will assume the *Jack of Hearts*. Thus, this hand is worth a total of 8 + 9 + 10 + 11 - 4 points. Totaling at a score of 34. The highest score a player could possibly obtain is 13 + 12 + 11 + 10 + 9, or 55 in total. This sequence can be completed in 21 ways when considering Aces. The objective across all rounds is to accumulate as many points as possible. The player managing to achieve the highest score at the end of the game wins.
 
@@ -39,9 +39,9 @@ Each player is dealt 5 cards at random which they keep secret from everyone else
 
 The starting player may either *donate* a card to any other player or *take* the currently unveiled card. When taking the card from the deck this player must discard any one card from their hand, **including the option of discarding the card they just collected**. It is not revealed to other players what card is discarded. After having done so this player takes the top card from the deck and flips it upside down, placing it back on top of the deck. This constitutes their *first action*. The first action may be forfeit if the player so wishes. For their *second action* they may either: forfeit this action (i.e. continue playing), *lock in* their cards or *steal ALL CARDS from another player, replacing theirs with yours*. In case of the latter two options the player places their cards face-down in front of them. Exchanged cards after a swap must be transferred face-down. They can no longer partake in this round and can no longer receive gifts. For additional comical effect there is the optional rule of disallowing the player initiating a transfer to look at the cards they received. **Players may not forfeit *both* actions during their turn** (i.e. do nothing).
 
-| ![Aristocrats2](content/creative/Aristocrats/kindofanass.jpg) |
+| ![Aristocrats3](content/creative/Aristocrats/kindofanass.jpg) |
 | :--: |
-| Play like a true gentleman! |
+| *Play like a true gentleman!* |
 
 When gifting a card to another player this card is transferred to them face-up (i.e for all to see). In case they can, they **must** accept this gift and return a card from their hand that is of a **strictly higher value, of a different suit than the one received**. When receiving a gift an Ace counts as 14 points, implying it outvalues the King. **The suit of the Ace is considered when picking a gift to return.** In case of multiple options the recipient may freely choose what card to return. The resulting card is transferred **face-down** back to the donor. If the receiving player has no single option they must declare this and return the card. The person that initiated the gift will immediately forfeit their turn (i.e. lose their second action). In case the recipient does return another card the donor receives the token of *Benefactor* and may proceed to their second action. The Benefactor holds the chosen token, usually a Joker card, next to them, visible to all. The Benefactor **can not receive gifts from anyone else**. A player holding the title of Benefactor can lose it in various ways: someone else completes a gift, transferring the title to them, the current Benefactor has their gift *denied* (i.e. the recipient cannot return a higher card) or they opt to take the unveiled card from the deck. Naturally they also lose the title when locking in their cards. There is at most one Benefactor at a time.
 

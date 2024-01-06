@@ -13,7 +13,7 @@ Being in development at the same time, The Ascent shares a lot of aesthetic simi
 
 | ![Ascent](content/reviews/The_Ascent/menu.jpg) |
 | :--: |
-| A bleak dystopian world awaits you in the Ascent |
+| *A bleak dystopian world awaits you in the Ascent* |
 
 ## The good
 Being an ARPG and Twin-Stick shooter at heart The Ascent is immediately tasked with battling some of the genre's prominent issues: having to find a solution for the usual "backstrafe and funnel enemies into a straight line" strategy and the general monotony of combat (needless to say related issues). The game does a decent job at this, offering a dynamic spawning system that will cause enemies to appear from various places at all angles from the player's current position. This effectively forces them to try and find the "escape vector" or hole in the enemy formation. On top of this the player gets access to two tactical options: augments and "tactical tools"; both offering some form of combat utility. The latter is charged through inflicting damage to hostiles, effectively rewarding *speed* - which is something I personally appreciate.
@@ -26,7 +26,7 @@ Sound-design wise the game is equally impressive, sporting unsurprising but serv
 
 | ![Ascent2](content/reviews/The_Ascent/pretty.jpg) |
 | :--: |
-| Many unique assets and visual coherency make The Ascent eye-candy |
+| *Many unique assets and visual coherency make The Ascent eye-candy* |
 
 ## The questionable
 The story The Ascent tells feels like it cast itself into a limbo between elaborate yet way too over-exploited to be interesting. The cyberpunk theme saw a significant influx of material surrounding, well... Cyberpunk 2077's release. This was much to the Ascent's detriment, and is frequently reflected in various critic reviews I read. Especially when looking at the Codex and the various races carving out their own niche in the world it becomes apparent a lot of time went into creating the setting what it is from a narrative standpoint. Unfortunately I found myself bored with the monotony of it quite quickly. The main storyline does little to alleviate this either, being tonally in-line with the remainder of the game. Disappointing, as the game offers excellent voice acting work across the board and pretty well written characters.
@@ -54,7 +54,7 @@ Outside of health there is a bar dedicated to a "mana-like" resource used for au
 
 | ![Ascent3](content/reviews/The_Ascent/mindless.jpg) |
 | :--: |
-| Despite its strong fundamentals the Ascent feels mindless far too often |
+| *Despite its strong fundamentals the Ascent feels mindless far too often* |
 
 Lastly but certainly not least there is the concern of the bugs and performance issues. I personally did not suffer *any* performance or stability issues, which might lead to this game being rated far too favorably here for some people. I did however experience a few bugs such as questlines pointing me to the wrong location or the map, or needing to restart the game to trigger a cutscene that refused to play. Overall I encountered only comparatively minor problems in this regard.
 

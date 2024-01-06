@@ -12,7 +12,7 @@ The game is a Twin-Stick action-focused (i.e. little fluff outside the core game
 
 | ![RUINER](content/reviews/RUINER/manipulation.jpg) |
 | :--: |
-| Sometimes RUINER makes you feel like you have fallen for some practical joke playing it |
+| *Sometimes RUINER makes you feel like you have fallen for some practical joke playing it* |
 
 ## More cyberpunk
 
@@ -36,19 +36,19 @@ My favorite mechanic in RUINER is without a doubt the way it implements the dash
 
 | ![RUINER2](content/reviews/RUINER/skilltree.jpg) |
 | :--: |
-| Despite the options, I frequently found myself defaulting to the more fundamental skills |
+| *Despite the options, I frequently found myself defaulting to the more fundamental skills* |
 
 ## The responsibility of difficulty
 
 As I have stated on various occasions I don't think there is anything wrong with making a game especially hard or punishing, but doing so should significantly raises the responsibilities for the developer. If you want to make a game rely on tight execution the windows in which the player is to act can't be ambiguous - they need to be communicated very clearly. It also needs to make sure there is an alternative path if players do truly get stuck. Preferably the game would also make the difficulty scale up gradually and in an understandable fashion. Overall I would say RUINER does *decent* at respecting these tasks.
 
-It certainly nails the gradual increase in difficulty; being quite easy when the player is just getting acclimated, but much more punishing once the game figures the ball has started rolling. Throughout the entire game did I find myself dying once or twice per arena consistently - with some higher outliers during some of the boss-fights. A pretty remarkable feat. Unfortunately I don't think the game executes visual communication quite as well - too frequently using overlapping color palettes or making enemies too hard to keep track of. This seems like a bad compromise to achieve the game's signature "red on grey"-look. Especially during the later stages of the game I found myself suddenly dying to enemies I had not seen sneak up to me. RUINER does not incorporate visual ambiguity as a deliberate mechanic (or if the designers would claim it does, then very poorly) so this is a definite negative for me.
+It certainly nails the gradual increase in difficulty; being quite easy when the player is just getting acclimated, but much more punishing once the game figures the ball has started rolling. Throughout the entire game did I find myself dying once or twice per arena consistently - with some (much) higher outliers during the boss-fights. A pretty remarkable feat. Unfortunately I don't think the game executes visual communication quite as well - too frequently using overlapping color palettes or making enemies too hard to keep track of. This seems like a bad compromise to achieve the game's signature "red on grey"-look. Especially during the later stages of the game I found myself suddenly dying to enemies I had not seen sneak up to me. RUINER does not incorporate visual ambiguity as a deliberate mechanic (or if the designers would claim it does, then very poorly) so this is a definite negative for me.
 
 Another issue I found with the game is that sometimes it feels a bit too *random*; enemies seem to dash and move around based on some randomized internal timer. This frequently lead to inconsistent situations where I felt I should be rewarded for a clean execution, but instead got punished - seemingly arbitrary. One such occasion is when an enemy decides to suddenly dash, then backstrafe after I decided to jump on top of them. This would result in me taking damage despite *usually* being rewarded with a kill. Luckily the game is lenient enough to take a few of these hits even on the hardest difficulty, but such inconsistencies feel like they should be avoided in a game that prides itself with being hard.
 
 | ![RUINER3](content/reviews/RUINER/ambiguous.jpg) |
 | :--: |
-| RUINER does suffer from the occasional lack of visual clarity |
+| *RUINER does suffer from the occasional lack of visual clarity* |
 
 ## Conclusion
 

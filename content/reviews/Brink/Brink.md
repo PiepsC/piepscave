@@ -11,7 +11,7 @@ Looking back on Brink in 2023 makes it a fascinating trainwreck of poor planning
 
 | ![Brink](content/reviews/Brink/cutscene.jpg) |
 | :--: |
-| Brink: a story of two extremes united in mediocrity |
+| *Brink: a story of two extremes united in mediocrity* |
 
 ## The premise
 Before even announcing Brink Splash Damage was known for games like *Wolfenstein : Enemy Territory* and, to a much lesser degree *Enemy Territory: Quake Wars* (another John Carmack game, also made with the id Tech 4 engine). Brink is an extension of these games in a way: another first person, role based, objective based shooter. Brink innovates on this formula by adding body-types and trying to integrate the story directly into its online matches - or at least, as such it was promoted.
@@ -43,7 +43,7 @@ I like to imagine Brink was carried through the approval process by its distinct
 
 | ![Brink2](content/reviews/Brink/cosmetics.jpg) |
 | :--: |
-| Brink offers a cool, expressive cosmetic system |
+| *Brink offers a cool, expressive cosmetic system* |
 
 The overall visual design of the game is coherent and unusual in appearance, being caricatural in nature. The guns look like functional weapons. Even though the feedback on them is lacking, most of them sound good, emitting a particular "clicky" (less bassy), "plastic" sound, accompanied by the rattling of miscellaneous equipment when running around. In an interview with the sound designer it was explained they put in quite a bit of effort to make the weapons sound a specific way. Somewhat jarringly not all weapons sound like you would expect them to from their visual design.
 
@@ -52,7 +52,7 @@ The map design is mostly rather bland but decent looking, or bland and awful loo
 
 | ![Brink3](content/reviews/Brink/ark.jpg) |
 | :--: |
-| The Ark based levels have a pleasant, somewhat boring look |
+| *The Ark based levels have a pleasant, somewhat boring look* |
 
 ## Conclusion
 Albeit bold, Brink does not deliver on the premise the developers were striving for. It is an almost objectively inferior version of Splash Damage's later *Dirty Bomb* (now also defunct). Its movement system, even though mostly functional, is neither satisfying as tactical- nor movement shooter and surprisingly under-utilized. The visual style is distinct and bold, but the texture work remains inconsistent at best. The map design is stagnant and does not justify the size of most maps. Body types are distinct in functionality, but cannot be swapped out during a game. The progression system is very hostile towards new players, allowing for various direct upgrades to be obtained over time (including locking body types behind an XP wall). The objectives destroy proper pacing in most matches and the fact that both teams converge on them most of the match invalidates the "parkour" aspect the game was promoted with.
