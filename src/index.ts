@@ -35,7 +35,6 @@ let then = 0; // Used for deltatime
 let menuButtons : HTMLButtonElement[] = [] // Save the current menu buttons for animation related things
 let mainBoxScale = boxSize/Math.sqrt(2 * Math.pow(boxSize, 2))
 let fullBoxDiff = 1.0 - mainBoxScale
-let squareSpawned = false; // Spawn the square only once on load complete
 // Used for transitions
 let bool1 = new ToggleBoolean(false), bool2 = new ToggleBoolean(false), bool3 = new ToggleBoolean(false);
 // For main page
@@ -601,12 +600,8 @@ m.route(start, gl ? "/home" : "/warning", {
             pTimer.time = 0;
             animation = 0;
             animOffset = 0;
-            if(!squareSpawned)
-            {
-                requestAnimationFrame(drawScene);
-                console.log("Welcome to Pieps' cave!");
-                squareSpawned = true;
-            }
+            console.log("Welcome to Pieps' cave!");
+
             return Home;
         }
     },
@@ -673,3 +668,6 @@ m.route(start, gl ? "/home" : "/warning", {
     },
 })
 //#endregion
+
+// Start render loop
+requestAnimationFrame(drawScene);
