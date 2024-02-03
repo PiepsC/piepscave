@@ -56,6 +56,6 @@ Lastly, and most prominently, RUINER does suffer from a few ugly *quirks*; thing
 
 RUINER is as deliberate as it is short, delivering on its premise fairly well. The game does suffer from being a little more bloated than I had hoped it would be, but due to the way this is implemented it is a comparatively minor inconvenience. Carving out a distinct niche within the oversaturated market of cyberpunk products it is a memorable title. It's hard, and sometimes a little too unforgiving considering not everything works as smoothly as intended. Though I do not have any major complaints, RUINER does feel like it would have benefitted from a bit more playtesting and time to cook through.
 
-Overall a strong and confident indie title well worth purchasing.
+Overall a strong and confident indie title.
 
 **Verdict: 7/10 - "good"**
