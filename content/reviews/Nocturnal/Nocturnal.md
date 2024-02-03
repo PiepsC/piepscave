@@ -52,6 +52,6 @@ Unfortunately it just doesn't click together all that well and feels more like a
 
 ## Conclusion
 
-Nocturnal proves once again that looks can be deceiving, standing out as a pretty yet bland action platforming built upon a deeply flawed notion. Prominent issues with visual communication and feedback lie at the roots of its inconsistent experience, while being predominantly bland and unsurprising outside of them. The game's short running time is carried entirely by its pretty environs, shader effects and decent sound design.
+Nocturnal proves once again that looks can be deceiving, standing out as a pretty yet predictable action platformer built upon a deeply flawed notion. Prominent issues with visual communication and feedback lie at the roots of its inconsistent experience, while being predominantly bland and unsurprising outside of them. The game's short running time is carried by its pretty environs, shader effects and decent sound design.
 
 **Verdict: 4/10 - "mediocre"**
