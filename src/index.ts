@@ -164,7 +164,7 @@ function drawScene(now)
     // Part for timers
     hTimer.tick(deltaTime);
     fTimer.tick(deltaTime);
-    if(fTimer.flip && (animation < 4 || animation == 5) && document.hasFocus())
+    if(fTimer.flip && (animation < 4 || animation == 5))
         rectangle.activateNext();
 
     // TODO: This is NOT working
@@ -670,4 +670,10 @@ m.route(start, gl ? "/home" : "/warning", {
 //#endregion
 
 // Start render loop
-requestAnimationFrame(drawScene);
+document.addEventListener("readystatechange", event => {
+    if((<Document>event.target).readyState == "complete")
+    {
+        console.log("Starting render-loop");
+        requestAnimationFrame(drawScene);
+    }
+})
