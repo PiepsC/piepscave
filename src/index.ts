@@ -164,7 +164,7 @@ function drawScene(now)
     // Part for timers
     hTimer.tick(deltaTime);
     fTimer.tick(deltaTime);
-    if(fTimer.flip && (animation < 4 || animation == 5))
+    if(fTimer.flip && (animation < 4 || animation == 5) && document.hasFocus())
         rectangle.activateNext();
 
     // TODO: This is NOT working
