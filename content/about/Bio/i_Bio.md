@@ -8,9 +8,9 @@
 
 **Department secretary:** (+49) 231 755-6112
 
-**Personal phone:** -
+**Personal phone:** reach out to me either by matrix or email
 
-**Work related email:** -
+**Work related email:** mlarwill@unimail.tu-dortmund.de
 
 **Personal email:** larswillemsen@piepscave.com
 
