@@ -14,7 +14,7 @@ Designed by Lars Willemsen in 2024
 
 ## Rationale
 
-Games that use few rules to induce a great deal of variation have always fascinated me. Chess and Go are straightforward examples, but Rummukib (originally a card game redesigned to instead uitilize smaller, more convenient rectangular tiles) too is a great example. The latter I found especially interesting considering it does not confine itself to being a head-to-head game. If you are into combinatorics all of these games can be analyzed quite neatly, making it comparatively straightforward to deliver a consistent, neat experience as a challenge. I did not do this write-up to convince you of the math, so continuing to read does not put you at risk of running into some particularly nasty equations!
+Games that use few rules to induce a great deal of variation have always fascinated me. Chess and Go are straightforward examples, but Rummikub (originally a card game redesigned to instead uitilize smaller, more convenient rectangular tiles) too is a great example. The latter I found especially interesting considering it does not confine itself to being a head-to-head game. If you are into combinatorics all of these games can be analyzed quite neatly, making it comparatively straightforward to deliver a consistent, neat experience as a challenge. I did not do this write-up to convince you of the math, so continuing to read does not put you at risk of running into some particularly nasty equations!
 
 My goal with Negen was to design a game using only dice, relying on a similar [exploding permutation based approach](https://en.wikipedia.org/wiki/Combinatorial_explosion#Latin_squares) we see in aforementioned games. These games tend to test the players' ability to process large state spaces, making them dull but arguably "intelligent" by design. Similar to Rummikub this is partially mitigated by being able to take control of the game's pace in especially daunting turns. The incorporation of dice can be leveraged to give the impression of chance playing a big role, even if quite modest in reality.
 
@@ -62,3 +62,4 @@ If a player manages to use up all four of their dice in a single turn they may i
 
 Even though it will be up to the players to decide the game ends after a certain amount of spirals are completed. This may occur quite rapidly - sometimes even before a player has had the chance to play a turn in the same round. As such I would recommend a number reasonable in the context of the present players' competence in playing Negen.
 
+# Have fun!
