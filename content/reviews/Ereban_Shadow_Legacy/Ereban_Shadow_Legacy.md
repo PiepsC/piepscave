@@ -44,4 +44,4 @@ This passion can too be found in the game's equally misguided visual design. Con
 
 Ereban Shadow Legacy feels like a game designed around a gimmick, and despite it being a neat one it cannot save an otherwise highly inconsistent, bland experience. With its extremely bare bones stealth game implementation, exceptionally boring level design, terrible AI and frustrating clunkiness Baby Robot Games' commercial debut title is no homerun. But it does propagate the indie experience with its striking albeit incoherent and flawed looks, decent voice acting, terrible yet endearing writing and the clear amount of love that went into creating it (do take a look at [their beautiful website](https://www.ereban.com/) for example!). If anything Ereban Shadow Legacy is a testament to a talented team learning the craft.
 
-**Verdict: 5/10**
+**Verdict: 5/10 - "average"**
