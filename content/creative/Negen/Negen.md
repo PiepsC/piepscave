@@ -64,7 +64,7 @@ Negen can be very daunting to process with more than two players. There are a fe
 
 - When you feel you cannot complete a spiral during your turn, instead try to *limit* what the person during the next turn can do. Remember you can see their dice as well!
 - Leaving a 3 or 4 as "open" nodes makes it very easy for subsequent players to connect new sequences. Players can connect to either of these with two different sequences
-- Your chances of being able to connect grow logarithmicly; this means you get dimishing returns as more nodes are open...
+- Your chances of being able to connect grow logarithmically; this means you get dimishing returns as more nodes are open...
 - ...however, the odds of being able to connect to a single-die-spiral grow very quickly with new nodes
 - You can make it less convenient for other players to connect a specific nodes by adding a "diagonal die"; this forces the player to also connect to the new node
 - Deliberately not completing a spiral when you know you get four new dice may net you more points, but it is a risky move!
