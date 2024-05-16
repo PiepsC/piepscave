@@ -54,19 +54,20 @@ When a spiral is completed by a player they may count all the dice it consists o
 
 Each player draws 4 dice and randomizes them. These dice are always placed in front of each player, visible to everyone. They do not change value unless specified by the rules. The oldest player at the table begins the game.
 
-When playing a turn the player must make sure that after the turn is concluded, all spirals on the table are still considered legal as stated in the ground rules. A player may also forfeit their turn if they either cannot, or wish not to add any new dice to any existing spiral. Forfeiting a turn without playing any dice allows the player to randomize any of their current dice, but they must also add a new randomized die to the table as a new spiral. Once a player has used any non-zero amount of their dice but can or does not wish to continue adding more of them to the table they may forfeit without having to add a new spiral. They may however not randomize their remaining dice. They take dice from the unused pool until they have four again. The new dice are again randomized and player in front of the player. If a player manages to use up all of their dice in a single turn they immediately start another turn with 4 new, randomized dice. If any spiral is completed at the end of a player's turn (so either by them explicitly forfeiting, or using all their dice) their turn is forfeit.
+When playing a turn the player must make sure that after the turn is concluded, all spirals on the table are still considered legal as stated in the ground rules. A player may also forfeit their turn if they either cannot, or wish not to add any new dice to any existing spiral. Forfeiting a turn without playing any dice allows the player to randomize any of their current dice, but they must also add a new randomized die to the table as a new spiral. Once a player has used any non-zero amount of their dice but can or does not wish to continue adding more of them to the table they may forfeit without having to add a new spiral. They may however not randomize their remaining dice. They take dice from the unused pool until they have four again. The new dice are again randomized and placed in front of the player. If a player manages to use up all of their dice in a single turn they immediately start another turn with 4 new, randomized dice. If any spiral is completed at the end of a player's turn (so either by them explicitly forfeiting, or using all their dice) their turn is forfeit.
 
-The first turn plays a little differently. The person starting the game puts two randomized dice on the table as spirals. They may also choose to *discard any single die* they currently have at any stage during their turn. This allows the first player's to empty their dice much easier during this turn than any subsequent turns. This is to mitigate the severe statistical disadvantage suffered by starting in Negen.
+Before the first turn starts 3 dice are drawn, randomized and placed on the table as new spirals.
 
 ## Beginner's strategy
 
-Negen can be very daunting to process with more than two players. There are a few observations that may make navigating the game easier, which are listed below:
+Negen can be quite daunting to process with more than two players. There are a few observations that may make navigating the game easier, which are listed below:
 
 - When you feel you cannot complete a spiral during your turn, instead try to *limit* what the person during the next turn can do. Remember you can see their dice as well!
 - Leaving a 3 or 4 as "open" nodes makes it very easy for subsequent players to connect new sequences. Players can connect to either of these with two different sequences
-- Your chances of being able to connect grow logarithmically; this means you get dimishing returns as more nodes are open...
+- Your chances of being able to connect grow logarithmically; this means you get diminishing returns as more nodes are open...
 - ...however, the odds of being able to connect to a single-die-spiral grow very quickly with new nodes
 - You can make it less convenient for other players to connect a specific nodes by adding a "diagonal die"; this forces the player to also connect to the new node
 - Deliberately not completing a spiral when you know you get four new dice may net you more points, but it is a risky move!
+- Single die spirals make it very easy for subsequent players to connect sequences, try to avoid having many of them available after your turn ends.
 
 # Have fun!
