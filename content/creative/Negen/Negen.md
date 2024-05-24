@@ -28,10 +28,10 @@ The name "Negen" means "Nine" in dutch. It is a palindrome representing the smal
 
 In Negen players try to add sequences of die to pre-existing "spirals" currently present on the table. A spiral is considered "legal" if it either:
 - it conists of a single die
-- it consists of only legal **sequences**
-- any pair of adjacent dice in the spiral are part of a sequence
+- it can be interpret as a legal set of **sequences**
+- any pair of adjacent dice in the spiral are part of the same sequence
 
-A sequence is a straight (i.e. non-diagonal, non-bent) line of exactly three connected die either in strictly ascended or descending order with a maximum of a single digit difference between each. A single sequence consists of two *nodes* and one *edge*. The image below illustrates the concept of sequences. The arrows point towards the nodes in the sequence. The bottom image displays a legal spiral consisting of two individual sequences: 5-4-3 and 3-4-5 (or vice versa, sequences are legal *bidirectionally*). The right image has no legal interpretation of sequences, and thus is not a legal spiral. In this image we need the die with 2, 4, 5 and the 3 on the bottom right to be considered nodes - but that leaves us with an illegal sequence of 3 connected nodes (5-4-3 in the bottom row are all nodes). Alternatively we could try the interpretation of 4 being an edge, but then 2-3-4 would consist of a single node and 2 edges. This spiral has earned itself a one way trip to math-jail!
+A sequence is a straight (i.e. non-diagonal, non-bent) line of exactly three connected die either in strictly ascended or descending order with a maximum of a single digit difference between each. A single sequence consists of two *nodes* and one *edge*. The image below illustrates the concept of sequences. The arrows point towards the nodes in the sequence. The bottom image displays a legal spiral consisting of two individual sequences: 5-4-3 and 3-4-5 (or vice versa, sequences are *bidirectional*). The right image has no legal interpretation of sequences, and thus is not a legal spiral. In this image we need the die with 2, 4, 5 and the 3 on the bottom right to be considered nodes - but that leaves us with an illegal sequence of 3 connected nodes (5-4-3 in the bottom row are all nodes). Alternatively we could try the interpretation of 4 being an edge, but then 2-3-4 would consist of a single node and 2 edges. Clearly there exists no set in which all sequences are legal. This spiral has earned itself a one way trip to math-jail!
 
 
 | ![Negen](content/creative/Negen/Sequences.jpg) |
@@ -40,7 +40,7 @@ A sequence is a straight (i.e. non-diagonal, non-bent) line of exactly three con
 
 ## The goal
 
-The goal in Negen is to obtain *complete* spirals. A spiral is considered complete when there exists a *path* where a node is reached more than once. A path is a set of directional sequences where each next sequence is the predecessor of the former, unless it is the first sequence. No single directional sequence in a path may have two directional interpretations. Oof! That sounds complicated. Fortunately it really is not. Below is an illustration of a spiral that has a path where nodes can be reached more than once, and a path that has no possible interpretation of a path with the same property:
+The goal in Negen is to obtain *complete* spirals. A spiral is considered complete when there exists a *path* where a node is reached more than once. A path is a set of *directional sequences* where each next sequence is the predecessor (i.e. shares a node) of the former, unless it is the first sequence. No single directional sequence in a path may have two directional interpretations. Oof! That sounds complicated. Fortunately it really is not. Below is an illustration of a spiral that has a path where nodes can be reached more than once, and a path that has no possible interpretation of a path with the same property:
 
 | ![Negen](content/creative/Negen/Paths.jpg) |
 | :--: |
