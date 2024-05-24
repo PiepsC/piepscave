@@ -29,6 +29,7 @@ The name "Negen" means "Nine" in dutch. It is a palindrome representing the smal
 In Negen players try to add sequences of die to pre-existing "spirals" currently present on the table. A spiral is considered "legal" if it either:
 - it conists of a single die
 - it consists of only legal **sequences**
+- any pair of adjacent dice in the spiral are part of a sequence
 
 A sequence is a straight (i.e. non-diagonal, non-bent) line of exactly three connected die either in strictly ascended or descending order with a maximum of a single digit difference between each. A single sequence consists of two *nodes* and one *edge*. The image below illustrates the concept of sequences. The arrows point towards the nodes in the sequence. The bottom image displays a legal spiral consisting of two individual sequences: 5-4-3 and 3-4-5 (or vice versa, sequences are legal *bidirectionally*). The right image has no legal interpretation of sequences, and thus is not a legal spiral. In this image we need the die with 2, 4, 5 and the 3 on the bottom right to be considered nodes - but that leaves us with an illegal sequence of 3 connected nodes (5-4-3 in the bottom row are all nodes). Alternatively we could try the interpretation of 4 being an edge, but then 2-3-4 would consist of a single node and 2 edges. This spiral has earned itself a one way trip to math-jail!
 
@@ -68,6 +69,6 @@ Negen can be quite daunting to process with more than two players. There are a f
 - ...however, the odds of being able to connect to a single-die-spiral grow very quickly with new nodes
 - You can make it less convenient for other players to connect a specific nodes by adding a "diagonal die"; this forces the player to also connect to the new node
 - Deliberately not completing a spiral when you know you get four new dice may net you more points, but it is a risky move!
-- Single die spirals make it very easy for subsequent players to connect sequences, try to avoid having many of them available after your turn ends.
+- Single die spirals make it very easy for subsequent players to connect sequences, try to avoid having many of them available after your turn ends
 
 # Have fun!
