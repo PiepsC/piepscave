@@ -2,73 +2,82 @@
 # Negen - a mathematician's game
 
 ## Game details
-**Players: 2 to 4**
+**Players: 3 to 4**
 
-**Duration: variable, but intended to be around 30-40 minutes**
+**Duration: variable, but intended to be around 20-30 minutes**
 
 **Difficulty: intermediate**
 
-**Requires: a note to keep track of the score, a lot of preferably 12mm dice - up to around 50 for 4 players**
+**Requires: a note to keep track of the score, a lot of small (12mm) dice - preferably 60+ for 4 players**
 
 Designed by Lars Willemsen in 2024
 
 ## Rationale
 
-Games that use few rules to induce a great deal of variation have always fascinated me. Chess and Go are straightforward examples, but Rummikub (originally a card game redesigned to instead uitilize smaller, more convenient rectangular tiles) too is a great example. The latter I found especially interesting considering it does not confine itself to being a head-to-head game. If you are into combinatorics all of these games can be analyzed quite neatly, making it comparatively straightforward to deliver a consistent, neat experience as a challenge. I did not do this write-up to convince you of the math, so continuing to read does not put you at risk of running into some particularly nasty equations!
+Negen is a simple game designed as a casual party game. It is strongly inspired by games like [Rummikub](https://en.wikipedia.org/wiki/Rummikub), which in turn is a straightforward example of a game relying on the concept of a *permutation explosion* to shape variations. Being innately random Negen can be quite difficult to capture even after multiple attempts at playing.
 
-My goal with Negen was to design a game using only dice, relying on a similar [exploding permutation based approach](https://en.wikipedia.org/wiki/Combinatorial_explosion#Latin_squares) we see in aforementioned games. These games tend to test the players' ability to process large state spaces, making them dull but arguably "intelligent" by design. Similar to Rummikub this is partially mitigated by being able to take control of the game's pace in especially daunting turns. The incorporation of dice can be leveraged to give the impression of chance playing a big role, even if quite modest in reality.
+The game was initialy designed around two things: involving just dice as playing pieces and having a very minimal ruleset yet abiding by the need for a great deal of variance. Dice are fascinating because they impose much needed radnomness on a game at the lowest possible inconvenience. Everyone understands dice and [their ability to predict the future](https://www.britannica.com/topic/dice)!
 
-The name "Negen" means "Nine" in dutch. It is a palindrome representing the smallest amount of steps you need to take to prove a "loop" in the game, starting and ending at the same die. The length of the word also constitutes a valid sequence defined by the game's rules.
-
-| ![Negen](content/creative/Negen/Negen.jpg) |
+| ![Negen1](content/creative/Negen/Negen.jpg) |
 | :--: |
-| *Negen : a simple permutation based game played with only dice!* |
-
-## Ground rules
-
-In Negen players try to add sequences of die to pre-existing "spirals" currently present on the table. A spiral is considered "valid" if it either:
-- it conists of a single die
-- it can be interpret as a valid set of **sequences**
-- any pair of adjacent dice in the spiral are part of the same sequence
-
-A sequence is a straight (i.e. non-diagonal, non-bent) line of exactly three connected die either in strictly ascended or descending order with a maximum of a single digit difference between each. A single sequence consists of two *nodes* and one *edge*. The image below illustrates the concept of sequences. The arrows point towards the nodes in the sequence. The bottom image displays a valid spiral consisting of two individual sequences: 5-4-3 and 3-4-5 (or vice versa, sequences are *bidirectional*). The right image has no valid interpretation of sequences, and thus is not a valid spiral. In this image we need the die with 2, 4, 5 and the 3 on the bottom right to be considered nodes - but that leaves us with an invalid sequence of 3 connected nodes (5-4-3 in the bottom row are all nodes). Alternatively we could try the interpretation of 4 being an edge, but then 2-3-4 would consist of a single node and 2 edges. Clearly there exists no set in which all sequences are valid. This spiral has earned itself a one way trip to math-jail!
-
-
-| ![Negen](content/creative/Negen/Sequences.jpg) |
-| :--: |
-| *Sequences are considered valid if there exists a right interpretation of nodes and edges* |
+| *Negen: a deceptively simple game played with just dice!* |
 
 ## The goal
 
-The goal in Negen is to obtain *complete* spirals. A spiral is considered complete when there exists a *path* where a node is reached more than once. A path is a set of *directional sequences* where each next sequence is the predecessor (i.e. shares a node) of the former, unless it is the first sequence. No single directional sequence in a path may have two directional interpretations. Oof! That sounds complicated. Fortunately it really is not. Below is an illustration of a spiral that has a path where nodes can be reached more than once, and a path that has no possible interpretation of a path with the same property:
+In Negen players will compete to try and complete **Spirals**. Spirals are chains of dice that seem to oppose converging. Once a spiral becomes **closed** it is considered completed (i.e. there exists a *loop* in the spiral) and the person completing it wins the round. Even though it is up to the party to decide how many rounds need to be won by a single player before the game ends, it is recommended to set it at a number no lower than 2 to battle the impact of luck and minor mistakes. Games in Negen can end very abruptly.
 
-| ![Negen](content/creative/Negen/Paths.jpg) |
+## Setting up and playing
+
+In order to play Negen each participant takes 4 dice from the pool and randomizes them. These dice are placed in front of each player visible to all. From now on these dice are referred to as "*player boards*". These dice are not to be randomized again unless explicitly stated. Then, three dice are taken from the pool, randomized and placed at the center of the table. These dice constitute the currently available spirals for the starting player. During a game of Negen the goal is to add or manipulate these spirals in a way that either benefits you, or thwarts the competitors ability to take meaningful turns. The resulting table should look something like this (for three players):
+
+| ![Negen2](content/creative/Negen/Setup.jpg) |
 | :--: |
-| *Interpreting the direction of sequences may not be ambiguous when forming a path* |
+| *Setting up to play* |
 
-Notice that for the first example, marked with the big red cross, we cannot find a path with unique directional interpretations to reach a single node twice. We would have to move from either 1 or 3 to the opposite end and then back! The second example does have a valid interpretation, simply by looping all the way back to the beginning.
+During a turn players may choose to either add or refuse to add dice to an existing spiral from their board. If a player is not able to add any dice from their board this counts as a refusal. Additionally, the player may, regardless of whether they opt to add dice to a spiral or not, *connect* existing ones. These actions may occur in any order, even in interweaving fashion (i.e. first adding dice, then connecting spirals and then adding more dice). Players may never manually *introduce* **new** spirals during their turn; they may only connect existing ones or add to them. A spiral is considered new if it consists of only dice that were not part of a spiral existing at the start of a player's turn. Adding and connecting dice happens in an *orthogonal* fashion. Simply think of it as creating straight lines, but no diagonal ones! Players may freely take any dice from existing spirals as long as those spirals are still valid at the end of their turn.
 
-When a spiral is completed by a player they may count all the dice it consists of (i.e. all dice to which there exists a path), count a single point for each regardless of their score and add this number to their current points. The spiral is then entirely removed from the table and the dice placed back in the pool of unused dice. If this leaves the table without any spiral then take a single die, randomize it and place it on the table as the new spiral. The player with most points at the end of the game wins!
+A player's turn is considered *valid* if, at the end of their turn, the board consists of only *valid spirals*. This will be explained in the next section. If, at any stage during their turn, a player depletes their entire board (i.e. they used up all four dice) their turn *ends, they take four new randomized dice from the pool and begin their turn anew*. Depleting a player board is one of the main objectives in Negen, as it allows the player to very quickly complete a spiral... if their fortune agrees. If a player is unable to deplete their board before explicitly ending their turn, but did add any non-zero amount of dice to existing spirals, they simply take dice from the pool until their board consists of 4 dice again. Only the new dice are randomized! If a player did not play any die from their board before ending their turn, they may instead randomize *any* of their current dice in their board but must then also take a new die from the pool, randomize it and add it to the board as a new spiral.
 
+Once a player manages to complete any currently available spiral by introducing a loop the round immediately ends. This player scores a point. New rounds start entirely anew as described in the beginning of this section. The youngest player in the party may initiate the first round, and each round thereafter has initiative rotate to the adjacent person in a clock-wise fashion.
 
-## Playing Negen
+## A bit about Spirals
 
-Each player draws 4 dice and randomizes them. These dice are always placed in front of each player, visible to everyone. They do not change value unless specified by the rules. The oldest player at the table begins the game.
+Spirals are notorious for their unwillingness to converge. In Negen, spirals are considered valid if they abide by a specific structure. The following statement might sound complicated at first, but fear not - it will be explained visually briefly after. In Negen, a spiral is considered valid if, for some valid interpretation of **nodes and edges** in the spiral each individual die is part of a valid **sequence**, OR, they exist of just a singular die.
 
-When playing a turn the player must make sure that after the turn is concluded, all spirals on the table are still considered valid as stated in the ground rules. A player may also forfeit their turn if they either cannot, or wish not to add any new dice to any existing spiral. Forfeiting a turn without playing any dice allows the player to randomize any of their current dice, but they must also add a new randomized die to the table as a new spiral. Once a player has used any non-zero amount of their dice but can or does not wish to continue adding more of them to the table they may forfeit without having to add a new spiral. They may however not randomize their remaining dice. They take dice from the unused pool until they have four again. The new dice are again randomized and placed in front of the player. If a player manages to use up all of their dice in a single turn they immediately start another turn with 4 new, randomized dice. If any spiral is completed at the end of a player's turn (so either by them explicitly forfeiting, or using all their dice) their turn is forfeit.
+*Oof!* Let's start by explaining what these nodes and edges are! Nodes and edges are like two opposite poles: they attract one another but repel their own kind. Nodes and edges exist in a perfectly *orthogonally interweaving* pattern. Next to a node we may only connect edges, and next to an edge only nodes. Edges and nodes are an abstract concept used in the explanation of *sequences*. Sequences are an orthogonal connection of three dice, consisting of a node, edge and another node. Each die in the sequence may at most differ a single point value from their neighbours and the entire sequence must be *strictly increasing or decreasing*. Examples of sequences are as such: "1-2-3", "3-2-1", "6-5-4" etc. Examples of erroneous sequences would be "5-4-5" (not strictly increasing or decreasing) or "1-5-6" (not a single point difference between neighbours).
 
-Before the first turn starts 3 dice are drawn, randomized and placed on the table as new spirals.
+In the image below there are some depictions of both valid and erroneous spirals. For the sake of convenience an interpretation of nodes are colored *red*, while edges are colored *blue*:
 
-## Beginner's strategy
+| ![Negen3](content/creative/Negen/Spirals.jpg) |
+| :--: |
+| *A real, valid spiral, or just masquerading as one?* |
 
-Negen can be quite daunting to process with more than two players. There are a few observations that may make navigating the game easier, which are listed below:
+In the valid spiral example we see as many as *three* different sequences: "3-4-5", "3-4-5" and "5-4-3". Sequences are *bidirectional*, so they may be considered in the opposite direction as well! In the erroneous cases we see two different problems at play. In the first, upper example the connecting dice simply do not differ a single point from neighbour to neighbour. In the second example there exists no possible interpretation of nodes and edges that would allow each two adjacent dice to be part of the same sequence (try it!).
 
-- When you feel you cannot complete a spiral during your turn, instead try to *limit* what the person during the next turn can do. Remember you can see their dice as well!
-- Leaving a 3 or 4 as "open" nodes makes it very easy for subsequent players to connect new sequences. Players can connect to either of these with two different sequences
-- Your chances of being able to connect grow logarithmically; this means you get diminishing returns as more nodes are open...
-- ...however, the odds of being able to connect to a single-die-spiral grow very quickly with new nodes
-- You can make it less convenient for other players to connect a specific nodes by adding a "diagonal die"; this forces the player to also connect to the new node
-- Deliberately not completing a spiral when you know you get four new dice may net you more points, but it is a risky move!
-- Single die spirals make it very easy for subsequent players to connect sequences, try to avoid having many of them available after your turn ends
+Lastly, besides being *valid* or not, spirals may become *completed* or *closed*. A completed spiral converges, and thus is no longer a spiral at all! This happens when a *loop* exists anywhere in the spiral's structure. A loop can be understood as interpreting each individual die in the spiral as a direction (north, east, south or west) and then trying to find a path that ends where it began. Once a player completes a spiral they win the round.
+
+## A single turn of playing Negen
+
+It is Piet's, our protagonist for this example, turn to play. On the center of the table are three spirals. One spiral is a singular die with the value 3, another consists of just a 1. The last spiral is a single sequence of "6-5-4". Piet's board consists of the dice 5, 2, 6 and 1. After some consideration Piet thinks that he has no chance to create a loop in any spiral as he will be unable to immediately connect to existing ones in such a fashion and is unable to use up all the dice in his board.
+
+He also recognizes that if he can not play offensively, he must play defensively instead. The table has three spirals. Piet will try to reduce the amount of spirals for the next players by connecting them. To the spiral of the sequence "6-5-4" he can connect the free spiral consisting of just a 3 and then complete the second sequence with a 2 from his board. Unfortunately this leaves the free spiral consisting of just a 1 open. Piet reconsiders: what if he takes the 5 and 4 from the spiral consisting of "6-5-4", then connects the free spiral consisting of a 3, add a 2 from his board and then connect the remaining free spiral consisting of a 1? This would 
+
+## Strategy
+
+Negen is a deceptive game in that it appears childishly simple and random, but actually explodes in terms of complexity quite rapidly. In order to win players must alternate between playing *offensively* (trying to complete spirals or emptying their board) and *defensively* (trying to make sure your competitors cannot properly use their turn). Often this requires simulating other players' turns mentally before committing to your own. As such, the complexity of Negen grows with the amount of people playing the game. Below are some fundamental observations that will get you started on the right path:
+
+- Die values closer to the "average" appear in the most sequences, making 3 and 4 especially appealing values to have on your board
+- "Crossing" a sequence (i.e. introducing a directly orthogonal sequence through it) is a common defensive play
+- Not playing a single die from your board is always a risky turn as it introduces a single-die spiral to the board
+- ...however, if your board is truly bricked it might be your best option
+- Single-die spirals are very convenient when it comes to connecting!
+- Trying to connect spirals together is another common defensive play
+- If things become hard to oversee, just simulate the turn of the next player, then assume they will do the same!
+- Sometimes you are the only person that can prevent a victory for someone else multiple turns ahead
+- Playing offensively is easy, playing defensively is much harder!
+
+## Media
+
+At some point Negen will have a small, simple and free Electron based application that allows people to play the game across the globe. For now this section is unfinished. You can find the mp3 (for file size constraints) of the game's theme at the following link: [Negen theme](content/creative/Negen/Negen_theme.mp3).
 
 # Have fun!

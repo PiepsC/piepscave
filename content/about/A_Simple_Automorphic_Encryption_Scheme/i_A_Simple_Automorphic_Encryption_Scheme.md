@@ -8,4 +8,4 @@
 
 **Faculty:** EEMCS: Electrical Engineering, Mathematics and Computer Science
 
-**Tags:** cryptography, mathematics, computer science, homomorphic, homomorphic encryption, performance, embedded systems, mathematics
+**Tags:** cryptography, mathematics, computer science, category theory, homomorphic encryption, performance, embedded systems

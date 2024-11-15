@@ -1,1 +1,2 @@
 ssh -i C:\Users\laarz\.ssh\strato root@82.165.60.161
+scp -i C:\Users\laarz\.ssh\strato -r C:\Users\laarz\Documents\Website\Certificates\* root@82.165.60.161:/Certificates

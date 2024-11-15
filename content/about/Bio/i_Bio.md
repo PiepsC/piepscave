@@ -10,7 +10,7 @@
 
 **Personal phone:** reach out to me either by matrix or email
 
-**Work related email:** mlarwill@unimail.tu-dortmund.de
+**Work related email:** lars.willemsen@tu-dortmund.de
 
 **Personal email:** larswillemsen@piepscave.com
 

@@ -585,7 +585,7 @@ let MiscPage = MiscView(
 
 let Warning = {
     view: function() {
-		return m("h1", {class : "warning"}, "Unfortunately your webrowser does not support webGL2...")
+		return m("h1", {class : "warning"}, "Unfortunately your webbrowser does not support webGL2...")
 	}
 }
 
