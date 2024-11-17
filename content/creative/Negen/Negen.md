@@ -58,23 +58,17 @@ Lastly, besides being *valid* or not, spirals may become *completed* or *closed*
 
 ## A single turn of playing Negen
 
-It is Piet's, our protagonist for this example, turn to play. On the center of the table are three spirals. One spiral is a singular die with the value 3, another consists of just a 1. The last spiral is a single sequence of "6-5-4". Piet's board consists of the dice 5, 2, 6 and 1. After some consideration Piet thinks that he has no chance to create a loop in any spiral as he will be unable to immediately connect to existing ones in such a fashion and is unable to use up all the dice in his board.
+It is Piet's, our protagonist for this example, turn to play. On the center of the table are three spirals. One spiral is a singular die with the value 3, another consists of just a 4. The last spiral is a single sequence of "6-5-4". Piet's board consists of the dice 5, 2, 2 and 1. After some consideration Piet thinks that he has no chance to create a loop in any spiral as he will be unable to immediately connect to existing ones in such a fashion and is unable to use up all the dice in his board.
 
-He also recognizes that if he can not play offensively, he must play defensively instead. The table has three spirals. Piet will try to reduce the amount of spirals for the next players by connecting them. To the spiral of the sequence "6-5-4" he can connect the free spiral consisting of just a 3 and then complete the second sequence with a 2 from his board. Unfortunately this leaves the free spiral consisting of just a 1 open. Piet reconsiders: what if he takes the 5 and 4 from the spiral consisting of "6-5-4", then connects the free spiral consisting of a 3, add a 2 from his board and then connect the remaining free spiral consisting of a 1? This would 
+After having realized he should not play offensively he considers his *defensive* options: there are a total of 3 spirals on the board. Piet understands that this is dangerous. He considers his first option: using a 2 from his board, and the lone 3 on the table to create a spiral consisting of "6-5-4-3-2". He also recognizes this might be dangerous: he leaves two spirals on the board doing this and he has just completed half a loop for the next person. Not to mention the lone spiral consists of a 4, notorious for being easy to connect to. He could connect the 4 with the 3, by using one of his 2's to create "4-3-2" but this too leaves the board with two spirals. After some consideration Piet figured out his play: he first creates "6-5-4-3-2" by using the 2 from his board. Then he uses another 2 from his board to "cross through" the "3" in the previous sequence to create "2-3-4". Below is a depiction of what the board looked like *before* Piet's turn, and after:
 
-## Strategy
-
-Negen is a deceptive game in that it appears childishly simple and random, but actually explodes in terms of complexity quite rapidly. In order to win players must alternate between playing *offensively* (trying to complete spirals or emptying their board) and *defensively* (trying to make sure your competitors cannot properly use their turn). Often this requires simulating other players' turns mentally before committing to your own. As such, the complexity of Negen grows with the amount of people playing the game. Below are some fundamental observations that will get you started on the right path:
-
-- Die values closer to the "average" appear in the most sequences, making 3 and 4 especially appealing values to have on your board
-- "Crossing" a sequence (i.e. introducing a directly orthogonal sequence through it) is a common defensive play
-- Not playing a single die from your board is always a risky turn as it introduces a single-die spiral to the board
-- ...however, if your board is truly bricked it might be your best option
-- Single-die spirals are very convenient when it comes to connecting!
-- Trying to connect spirals together is another common defensive play
-- If things become hard to oversee, just simulate the turn of the next player, then assume they will do the same!
-- Sometimes you are the only person that can prevent a victory for someone else multiple turns ahead
-- Playing offensively is easy, playing defensively is much harder!
+```
+		6 - 5 - 4						4
+										|
+			3		 =>		6 - 5 - 4 - 3 - 2
+	4									|
+										2
+```
 
 ## Media
 
