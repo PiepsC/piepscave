@@ -1,0 +1,40 @@
+# The Pathless game review
+**Review by Lars Willemsen, 18/12/2024**
+
+### Disclaimer
+These articles are designed to be read on horizontally oriented aspect ratios, but should work on any screen. If this is not the case please do contact me! The thumbnail and star rating on the right side of the screen can be disabled by clicking on it. In case the article is a little too drawn out for your liking there is a summary at the very end.
+
+## Introduction
+The Pathless is a game developed by Giant Squid, best known as the studio behind their flagship title Abzû. It was published by Annapurna Interactive, also known for publishing indie games such as Neon White and Stray. The game released in November 2020 for PC and the Playstation, and saw a port for the Xbox one in February of 2023. A notable feature of The Pathless is its in-house production of an orchestral soundtrack incorporating exotic sounds such as a Mongolian throat singer and prominent use of the Nyckelharpa; a traditional Swedish string instrument. Similar to Abzû the game's design philosophy consists of focusing on accessability and visual flair, [as described by the lead game designer and producer](https://www.youtube.com/watch?v=xYePi1RLkxA). The Pathless is [available on Steam](https://store.steampowered.com/app/1492680/The_Pathless/) and sits at a comfortable 91% positive rating at the time of writing this review.
+
+## A visual spectacle with a focus on accessability
+
+The lead game designer Cosmo Fumo explains that a focal point in the development of The Pathless is to create an accessible experience. "The protagonist is a master huntress - she does not think about aiming, so we don't want the player to either" he explains. This reveals two motifs that will be consistently present throughout the game: simplicity, and a focus on flair over substance. And flair there is plenty: similar to Abzû The Pathless is a visual spectacle with pretty shaders and generally excellent animation work on prominent display. The environment design is coherent and easy to comprehend. The various different worlds the player is exposed to are presented confidently in their simplicity, with clear landmarks and sparse forests populating the vast plains.
+
+| ![Paths](content/reviews/The_Pathless/prettyworld.jpg) |
+| :--: |
+| *The Pathless introduces the player to pretty, confident looking environs* |
+
+After being introduced to the third world reusing the same assets and color palettes the presentation starts to overstay its welcome however. It is clear the environs and the means of traversing them were developed in tandem, which brings us to arguably the game's most interesting feature: its movement mechanics. The Pathless opts for a very abstract style of movement: the player shoots at *talismans* scattered throughout the world to gain a resource equivalent to "stamina" as well an immediate burst of speed. Shooting said talismans is designed in a way respecting Fumo's earlier philosophy: the player simply angles the camera such that it aligns with a talisman and holds the mouse. If the release of the mouse is timed well the player is rewarded with even more speed. This implementation is novel, intelligent and fits the aesthetic of the game. It is intuitive to the player and feels generic enough to expand upon easily.
+
+## A journey of chores
+
+Unfortunately the designers behind The Pathless apparently perceived simplicity as its own virtue: coming up with an easy to comprehend presentation both visually and gameplay wise, but don't expand on any of it meaningfully. The first confusing introduction to me was, somewhat ironically considering its pivotal role narratively, your eagle companion. During The Pathless the Hunter is accompanied by an eagle familiar, crudely referred to as "the bird" by the actors. The bird™ comes with some convenient features such as being able to glide through the air and "flap" (I did not make this up, they will refer to the mechanic as "flapping" throughout the game consistently): the ability to immediately gain vertical height at the press of a button. The problem is that this mechanic competes directly with the movement system which could also be expanded very easily to perform the same role. It seems that introducing said bird come with mechanics tied to things birds generally do, design implications be damned.
+
+Comically the game seems to recognize this conflict and occasionally takes away your bird's abilities for specific platforming puzzles, which are generally underdeveloped and awkward as the movement system seems purely relegated to overworld traversal. This awkwardness in design pops up in several places across The Pathless, especially when the game prioritizes visual flair over consistency and neatness. One such example is the "storm" mechanic: a prominent red sphere that occupies part of the overworld in an attempt to inconvenience the player trying to get to locations obscured by it. This storm also follows the player around in an immediate sense: it moves towards them when they get too close. Upon being somehow caught in its influence (as it moves at a rather elderly pace) the player is thrown in a bland, but visually appealing minigame of "not moving occasionally"; a creature spawns seeking you out before vanishing after a while, during which time the player must sit idle. Afterwards the player gets rewarded with another visually appealing but thoroughly irritating minigame of dusting the particles off your bird. If the game feels especially churting it can impose these repetitive chores upon the player in quick succession.
+
+| ![Paths2](content/reviews/The_Pathless/waiting.jpg) |
+| :--: |
+| *The exhilarating game of "waiting"* |
+
+The menial nature of these segmented "minigames" is your second companion in The Pathless. Ranging from visually impressive but unrewarding, samey boss-fights to the overly simplistic and uninspiring puzzles it never felt like the game managed to surprise me, and especially during the last few hours of my playthrough I was mostly just waiting for the whole thing to be over.
+
+## Inconsistencies
+
+The Pathless presents itself well. It incorporates some smart design decisions that hold a lot of merit, even if not expanded upon meaningfully. However, the game is also prone to falling to inconsistency quite frequently. Buttons not working when indicated they should, or the player randomly losing momentum because the Huntress decides to vault a small layer of elevation the size of an ant-sized pebble. Some areas are entirely deprived of talismans and stamina does not regenerate by itself, effectively reducing the pace of the game to a snail's pace. The story also felt extremely secondary to the experience, being overly underdeveloped, generic and honestly feeling quite incoherent even in spite of its simplicity. The message it wants to convey is that the only true path is the one invented by the one taking it -- but that might be a little ironic in a game where the whole plot is driven by a needy bird commanding you to perform chores. It kind-of feels like the whole thing was spawned after the lead writer's routine "twirling around in the park in their bohemian clothing"-session, and not given much throught thereafter.
+
+
+## Conclusion
+The Pathless is a game that presents itself confidently, and for good reasons: it looks very pretty, has excellent sound design across the board and even some peculiar, innovative ideas. Unfortunately it fails to expand upon any of it meaningfully, resulting in a dry, bland and repetitive experience once the novelty wears off. The game's strong focus on flair over substance ultimately spells its downfall into mediocrity, despite clearly possessing the means to have been a remarkable game. Tied together neatly with an uninspiring and predictable story The Pathless is a beautiful yet thoroughly disappointing experience.
+
+**Verdict: 6/10 - "decent"**

@@ -63,11 +63,11 @@ It is Piet's, our protagonist for this example, turn to play. On the center of t
 After having realized he should not play offensively he considers his *defensive* options: there are a total of 3 spirals on the board. Piet understands that this is dangerous. He considers his first option: using a 2 from his board, and the lone 3 on the table to create a spiral consisting of "6-5-4-3-2". He also recognizes this might be dangerous: he leaves two spirals on the board doing this and he has just completed half a loop for the next person. Not to mention the lone spiral consists of a 4, notorious for being easy to connect to. He could connect the 4 with the 3, by using one of his 2's to create "4-3-2" but this too leaves the board with two spirals. After some consideration Piet figured out his play: he first creates "6-5-4-3-2" by using the 2 from his board. Then he uses another 2 from his board to "cross through" the "3" in the previous sequence to create "2-3-4". Below is a depiction of what the board looked like *before* Piet's turn, and after:
 
 ```
-		6 - 5 - 4						4
-										|
-			3		 =>		6 - 5 - 4 - 3 - 2
-	4									|
-										2
+       6 - 5 - 4                        4
+                                        |
+            3        =>     6 - 5 - 4 - 3 - 2
+    4                                   |
+                                        2
 ```
 
 ## Media
